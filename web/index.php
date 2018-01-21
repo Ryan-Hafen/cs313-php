@@ -31,7 +31,7 @@
 
 		<div class="col container l8">
 			<div class="card-4 container padding">
-				<h4 class="text-theme xxlarge left-align">
+				<h4 class="text-theme large left-align">
 					<p>My name is Ryan Hafen. I am working on my BS in Web Design and Development emphasis in Development. I chose this major because it very similar to what I have been doing 
 					professionally for about ten years. I am a Financial Data and Applications analyst, which means that I create and maintain database for a health insurance company in the 
 					Finance department. Along with the database aspect, I create reporting applications and dashboards. The bulk of my experience is with SQL Server stack (SSMS, SSRS, SSIS, and 
