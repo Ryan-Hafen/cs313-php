@@ -2,7 +2,7 @@
 <html lang="en-us">
 
 <head>
-	<title>Assignments | Ryan Hafen Portfolio</title>
+	<title>ASSIGNMENTS | Ryan Hafen Portfolio</title>
     <?php include $_SERVER['DOCUMENT_ROOT'].'/modules/head.php';?>
 </head>
 
@@ -23,13 +23,7 @@
 
 <!-- Main -->
 	<div class="row-padding center margin">
-		<div class="col container l8">
-			<div class="card-4 container padding-16">
-				<img src="images/RyanHeadshot.jpg" style="width:100%;" class="animate-zoom image">
-			</div>
-		</div>
-
-		<div class="col container l4">
+		<div class="col container l12">
 			<div class="card-4 container padding">
 				<h4 class="text-theme xxlarge left-align">
 					<p>Comming Soon!</p>
