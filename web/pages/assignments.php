@@ -2,7 +2,7 @@
 <html lang="en-us">
 
 <head>
-	<title>Ryan Hafen Portfolio</title>
+	<title>Assignments | Ryan Hafen Portfolio</title>
     <?php include $_SERVER['DOCUMENT_ROOT'].'/modules/head.php';?>
 </head>
 
@@ -32,7 +32,7 @@
 		<div class="col container l4">
 			<div class="card-4 container padding">
 				<h4 class="text-theme xxlarge left-align">
-					<p>Introduction</p>
+					<p>Comming Soon!</p>
 				</h4>
 			</div>
 		</div>
