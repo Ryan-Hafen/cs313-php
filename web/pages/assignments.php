@@ -26,7 +26,7 @@
 		<div class="col container l12">
 			<div class="card-4 container padding">
 				<h4 class="text-theme xxlarge left-align">
-					<p>Comming Soon!</p>
+					<p>Coming Soon!</p>
 				</h4>
 			</div>
 		</div>
