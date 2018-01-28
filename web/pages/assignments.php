@@ -25,7 +25,7 @@
 	<div class="row-padding center margin">
 		<div class="col container l12">
 			<div class="card-4 container padding">
-				<h4 class="text-theme xxlarge left-align">
+				<h4 class="text-theme large left-align">
 					<a href="wk03ShoppingCart/index.php">Week 03 - Shopping Cart</a>
 				</h4>
 			</div>
