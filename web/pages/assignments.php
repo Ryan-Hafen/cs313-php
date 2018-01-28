@@ -26,7 +26,7 @@
 		<div class="col container l12">
 			<div class="card-4 container padding">
 				<h4 class="text-theme xxlarge left-align">
-					<p>Coming Soon!</p>
+					<a href="wk03ShoppingCart/index.php">Week 03 - Shopping Cart</a>
 				</h4>
 			</div>
 		</div>
