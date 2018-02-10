@@ -3,10 +3,11 @@
 // require('../model/notes_db.php');
 // require('../model/scriptures_db.php');
 // require('../model/users_db.php');
-include('../model/database.php');
-include('../model/notes_db.php');
-include('../model/scriptures_db.php');
-include('../model/users_db.php');
+Include $_SERVER['DOCUMENT_ROOT'].'/pages/project/model/database.php';
+Include $_SERVER['DOCUMENT_ROOT'].'/pages/project/model/notes_db.php';
+Include $_SERVER['DOCUMENT_ROOT'].'/pages/project/model/scriptures_db.php';
+Include $_SERVER['DOCUMENT_ROOT'].'/pages/project/model/users_db.php';
+
 $action = filter_input(INPUT_POST, 'action');
 if ($action == NULL) {
     $action = filter_input(INPUT_GET, 'action');
