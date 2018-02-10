@@ -1,7 +1,7 @@
 <?php include '../view/header.php'; ?>
 <main>
 <!--    <aside>
-        <?php include '../view/categories_nav.php'; ?>
+        <?php include '../view/scripture_nav.php'; ?>
     </aside>-->
     
     <section>
