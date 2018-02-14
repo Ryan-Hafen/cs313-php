@@ -54,8 +54,8 @@ try {
 		<form name="form_books" action="<?php echo $current_page; ?>" method="post">
 			<select name="book">
 				<option value="">All</option>
-				<?php foreach($books as $row) {
-					$book = $row['bookName'];
+				<?php foreach($books as $book) {
+					// $book = $row['bookName'];
 					$selected = ($book == $filter_book) ? ' selected' : '';
 					echo "<option$selected>$book</option>";
 					}
