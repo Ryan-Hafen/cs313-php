@@ -45,7 +45,7 @@ if ($book_id != false) {
 
 
 <main>
-	<form name="form_books" action="." method="post">
+	<form name="form_books" action="<?php echo $current_page; ?>" method="post">
 		<label>Book:</label>
 		<select name="book_id">
 			<?php foreach ($books as $book) : ?>
