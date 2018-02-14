@@ -2,20 +2,25 @@
 require $_SERVER['DOCUMENT_ROOT'].'/pages/project/model/database.php';
 include $_SERVER['DOCUMENT_ROOT'].'/pages/project/view/header.php'; 
 
-function get_notes() {
-    global $db;
-    $query = 'SELECT *
+
+$statement = $db->query('SELECT n.id
+	               , n.note AS noteText
+				   , n.scripturesID
+				   , s.chapter
+				   , s.verse
+                   , s.bookID
+				   , b.bookName
+				   , b.volumeID
+				   , b.volumeName
+                   , u.email
                 FROM notes as n 
                 JOIN users as u on n.userId = u.id 
                 JOIN scriptures as s on n.scripturesID = s.id 
                 JOIN books as b on s.BookID = b.id 
-                JOIN volumes as v on b.VolumeID = v.id';
-    $statement = $db->prepare($query);
-    $statement->execute();
-    return $statement;    
-};
+                JOIN volumes as v on b.VolumeID = v.id';);
+$results = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-$notes = get_notes();
+
 
 ?>
 <main>
@@ -35,7 +40,7 @@ $notes = get_notes();
                 <th>&nbsp;</th>
             </tr>
 
-            <?php foreach ($notes as $note) : ?>
+            <?php foreach ($results as $note) : ?>
             <tr>
                 <td><?php echo $note['volumeName']; ?></td>
                 <td><?php echo $note['bookName']; ?></td>
