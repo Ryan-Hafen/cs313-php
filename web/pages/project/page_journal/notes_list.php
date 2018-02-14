@@ -1,6 +1,6 @@
 <?php 
-require $_SERVER['DOCUMENT_ROOT'].'/project/model/database.php';
-include $_SERVER['DOCUMENT_ROOT'].'/project/view/header.php'; 
+require $_SERVER['DOCUMENT_ROOT'].'/pages/project/model/database.php';
+include $_SERVER['DOCUMENT_ROOT'].'/pages/project/view/header.php'; 
 
 function get_notes() {
     global $db;
