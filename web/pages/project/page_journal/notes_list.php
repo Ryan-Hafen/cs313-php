@@ -54,12 +54,12 @@ try {
 		<form name="form_books" action="<?php echo $current_page; ?>" method="post">
 			<select name="book">
 				<option value="">All</option>
-				<?php foreach($books as $book) {
-					// $book = $row['bookName'];
-					$selected = ($book == $filter_book) ? ' selected' : '';
-					echo "<option$selected>$book</option>";
-					}
-				?>
+				<?php foreach ($books as $book) : ?>
+                <option value="<?php echo $book['bookName']; ?>" 
+                    <?php if ($book['bookName'] == $filter_book) { echo 'selected="selected"';}?>>
+                    <?php echo $book['bookName']; ?>
+                </option>
+				<?php endforeach; ?>
 			</select>
 			<input type="submit" value="Search" />
 		</form>
