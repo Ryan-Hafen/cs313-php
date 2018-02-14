@@ -56,7 +56,6 @@ try {
 				<option value="">All</option>
 				<?php foreach ($books as $book) : ?>
                 <option value="<?php echo $book['bookName']; ?>" 
-                    <?php if ($book['bookName'] == $filter_book) { echo 'selected="selected"';}?>>
                     <?php echo $book['bookName']; ?>
                 </option>
 				<?php endforeach; ?>
