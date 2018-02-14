@@ -29,10 +29,10 @@ try {
 			  JOIN books AS b ON s.bookId = b.id';
 			  
     if ($filter_book != '') {
-      $sql .= ' WHERE book = :book';
+      $sql .= ' WHERE b.bookName = :book';
       $params['book'] = $filter_book;
     }
-    $sql .= ' ORDER BY book';
+    $sql .= ' ORDER BY s.bookId';
     $filtered_books = $db->prepare($sql);
     $filtered_books->execute($params);
   }
