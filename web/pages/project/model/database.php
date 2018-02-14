@@ -1,5 +1,19 @@
 <?php
 
+  function safe_input($data) {
+      $data = trim($data);
+      $data = stripslashes($data);
+      $data = htmlspecialchars($data);
+      return $data;
+  }
+  function safe_get($key, $default = '') {
+      return safe_input(isset($_GET[$key]) ? $_GET[$key] : $default);
+  }
+  
+  function safe_post($key, $default = '') {
+      return safe_input(isset($_POST[$key]) ? $_POST[$key] : $default);
+  }
+  
 // default Heroku Postgres configuration URL
 $dbUrl = getenv('DATABASE_URL');
 

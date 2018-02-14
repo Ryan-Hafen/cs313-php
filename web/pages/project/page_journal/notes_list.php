@@ -3,10 +3,13 @@ require $_SERVER['DOCUMENT_ROOT'].'/pages/project/model/database.php';
 include $_SERVER['DOCUMENT_ROOT'].'/pages/project/view/header.php'; 
 
 $current_page = htmlspecialchars($_SERVER["PHP_SELF"]);
+
 $dbUrl = getenv('DATABASE_URL');
+
 $filter_book = safe_post('book');
+
 try {
-	$books = $db->query('SELECT DISTINCT book FROM scriptures ORDER BY book');
+	$books = $db->query('SELECT DISTINCT bookName FROM books ORDER BY id');
     $params = [];
     $sql = 'SELECT id, book, chapter, verse, content FROM scriptures';
     if ($filter_book != '') {
@@ -60,4 +63,4 @@ try {
         </table> 
     </section>
 </main>
-<?php include '../view/footer.php'; ?>
+<?php include $_SERVER['DOCUMENT_ROOT'].'/pages/project/view/footer.php'; ?>
