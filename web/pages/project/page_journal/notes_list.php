@@ -18,7 +18,7 @@ $statement->closeCursor();
 	<label>Book:</label>
     <select name="book_id">
 		<?php foreach ($books as $book) : ?>
-			<option value="<?php echo $book['id']; ?>" 
+			<option value="<?php echo $book['id']; ?>" >
 				<?php echo $book['bookname']; ?>
 			</option>
         <?php endforeach; ?>
