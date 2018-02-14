@@ -4,16 +4,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/pages/project/view/header.php';
 
 function get_notes() {
     global $db;
-    $query = 'SELECT n.id
-	               , n.note AS noteText
-				   , n.scripturesID
-				   , s.chapter
-				   , s.verse
-                   , s.bookID
-				   , b.bookName
-				   , b.volumeID
-				   , b.volumeName
-                   , u.email
+    $query = 'SELECT *
                 FROM notes as n 
                 JOIN users as u on n.userId = u.id 
                 JOIN scriptures as s on n.scripturesID = s.id 
