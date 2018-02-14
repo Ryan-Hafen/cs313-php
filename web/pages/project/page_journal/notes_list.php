@@ -17,7 +17,7 @@ $statement->closeCursor();
 
     
     <section>
-        <?php foreach ($books as $category) : ?>
+        <?php foreach ($books as $book) : ?>
         <tr>    
             <td><?php echo $book['bookName']; ?></td>
             <td><form action="." method="post">
