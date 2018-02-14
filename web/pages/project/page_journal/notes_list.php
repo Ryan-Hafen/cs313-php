@@ -9,8 +9,7 @@ $dbUrl = getenv('DATABASE_URL');
 $filter_book = safe_post('book');
 
 try {
-	$books = $db->query('SELECT id AS bookId
-	                          , bookName 
+	$books = $db->query('SELECT bookName 
 						   FROM books 
 						  ORDER BY id');
     $params = [];
@@ -50,32 +49,19 @@ try {
 
     
     <section>
-			<legend>Search</legend>
-				<form name="form_books" action="<?php echo $current_page; ?>" method="post">
+				<form name="form_books" action="." method="post">
 					<select name="book">
 						<option value="">All</option>
-							<?php foreach($books as $row) {
-								$book = $row['bookName'];
-								$selected = ($book == $filter_book) ? ' selected' : '';
-								echo "<option$selected>$book</option>";
-								}
-							?>
+						<?php foreach($books as $row) {
+							$book = $row['bookName'];
+							$selected = ($book == $filter_book) ? ' selected' : '';
+							echo "<option$selected>$book</option>";
+							}
+						?>
 					</select>
 					<input type="submit" value="Search" />
 				</form>
 				
-
-		<form name="form_books" action="<?php echo $current_page; ?>" method="post">
-            <select name="book_search">
-            <?php foreach ($books as $book) : ?>
-                <option value="<?php echo $book['bookID']; ?>" 
-                    <?php if ($book['bookID'] == $book_id) { echo 'selected="selected"';}?>>
-                    <?php echo $book['bookName']; ?>
-                </option>
-            <?php endforeach; ?>
-            </select><br>	
-			<input type="submit" value="Search" />
-		</form>	
 		
         <table>
             <tr>
