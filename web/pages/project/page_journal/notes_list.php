@@ -49,7 +49,8 @@ if ($book_id != false) {
 		<label>Book:</label>
 		<select name="book_id">
 			<?php foreach ($books as $book) : ?>
-				<option value="<?php echo $book['id']; ?>" >
+				<option value="<?php echo $book['id']; ?>" 
+					<?php if ($book['id'] == $book_id) { echo 'selected="selected"';}?>>
 					<?php echo $book['bookname']; ?>
 				</option>
 			<?php endforeach; ?>
