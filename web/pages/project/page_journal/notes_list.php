@@ -2,6 +2,8 @@
 require $_SERVER['DOCUMENT_ROOT'].'/pages/project/model/database.php';
 include $_SERVER['DOCUMENT_ROOT'].'/pages/project/view/header.php'; 
 
+$current_page = htmlspecialchars($_SERVER["PHP_SELF"]);
+
 $book_id = filter_input(INPUT_POST, 'book_id', FILTER_VALIDATE_INT);
 
 // Get all books
@@ -71,6 +73,7 @@ if ($book_id != false) {
             <td><?php echo $note['note']; ?></td>
         </tr>
         <?php endforeach; ?>
+	</table>
 </main>
 
 
