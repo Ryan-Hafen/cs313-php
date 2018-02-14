@@ -9,7 +9,7 @@ $dbUrl = getenv('DATABASE_URL');
 $filter_book = safe_post('book');
 
 try {
-	$books = $db->query('SELECT DISTINCT bookName FROM books ORDER BY id');
+	$books = $db->query('SELECT bookName FROM books ORDER BY id');
     $params = [];
     $sql = 'SELECT id, book, chapter, verse, content FROM scriptures';
     if ($filter_book != '') {
