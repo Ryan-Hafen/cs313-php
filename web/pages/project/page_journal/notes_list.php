@@ -3,9 +3,9 @@ require $_SERVER['DOCUMENT_ROOT'].'/pages/project/model/database.php';
 include $_SERVER['DOCUMENT_ROOT'].'/pages/project/view/header.php'; 
 
 // Get all categories
-$query = 'SELECT bookname
+$query = 'SELECT *
             FROM books
-           ORDER BY ID';
+           ORDER BY id';
 $statement = $db->prepare($query);
 $statement->execute();
 $books = $statement->fetchAll();
@@ -15,17 +15,13 @@ $statement->closeCursor();
 ?>
 <main>
 
-	<section>
-		<form name="form_books" action="<?php echo $current_page; ?>" method="post">
-		<select name="book">
-			<option value="">All</option>
-			<?php foreach($books as $book) {
-				echo "<option>$book</option>";
-			}
-			?>
-		</select>
-      <input type="submit" value="Search" />
-    </form>
-	</section>
+	<label>Book:</label>
+    <select name="book_id">
+		<?php foreach ($books as $book) : ?>
+			<option value="<?php echo $book['id']; ?>" 
+				<?php echo $book['bookname']; ?>
+			</option>
+        <?php endforeach; ?>
+    </select><br>
 </main>
 <?php include $_SERVER['DOCUMENT_ROOT'].'/pages/project/view/footer.php'; ?>
