@@ -2,24 +2,25 @@
 require $_SERVER['DOCUMENT_ROOT'].'/pages/project/model/database.php';
 include $_SERVER['DOCUMENT_ROOT'].'/pages/project/view/header.php'; 
 
-
-$statement = $db->query('SELECT n.id
-	               , n.note AS noteText
-				   , n.scripturesID
-				   , s.chapter
-				   , s.verse
-                   , s.bookID
-				   , b.bookName
-				   , b.volumeID
-				   , b.volumeName
-                   , u.email
-                FROM notes as n 
-                JOIN users as u on n.userId = u.id 
-                JOIN scriptures as s on n.scripturesID = s.id 
-                JOIN books as b on s.BookID = b.id 
-                JOIN volumes as v on b.VolumeID = v.id';);
-$results = $statement->fetchAll(PDO::FETCH_ASSOC);
-
+$current_page = htmlspecialchars($_SERVER["PHP_SELF"]);
+$dbUrl = getenv('DATABASE_URL');
+$filter_book = safe_post('book');
+try {
+	$books = $db->query('SELECT DISTINCT book FROM scriptures ORDER BY book');
+    $params = [];
+    $sql = 'SELECT id, book, chapter, verse, content FROM scriptures';
+    if ($filter_book != '') {
+      $sql .= ' WHERE book = :book';
+      $params['book'] = $filter_book;
+    }
+    $sql .= ' ORDER BY book';
+    $filtered_books = $db->prepare($sql);
+    $filtered_books->execute($params);
+  }
+  catch (PDOException $ex) {
+    print "<p>error: {$ex->getMessage()} </p>\n\n";
+    die();
+  }
 
 
 ?>
@@ -27,7 +28,22 @@ $results = $statement->fetchAll(PDO::FETCH_ASSOC);
 
     
     <section>
-        <p><a href="?action=add_note_form">Add Note</a></p>     
+		<fieldset>
+			<legend>Search</legend>
+				<form name="form_books" action="<?php echo $current_page; ?>" method="post">
+					<select name="book">
+						<option value="">All</option>
+							<?php foreach($books as $row) {
+								$book = $row['book'];
+								$selected = ($book == $filter_book) ? ' selected' : '';
+								echo "<option$selected>$book</option>";
+								}
+							?>
+					</select>
+					<input type="submit" value="Search" />
+				</form>
+		</fieldset>     
+		
         <table>
             <tr>
                 <th>Volume</th>
@@ -40,38 +56,7 @@ $results = $statement->fetchAll(PDO::FETCH_ASSOC);
                 <th>&nbsp;</th>
             </tr>
 
-            <?php foreach ($results as $note) : ?>
-            <tr>
-                <td><?php echo $note['volumeName']; ?></td>
-                <td><?php echo $note['bookName']; ?></td>
-                <td><?php echo $note['Chapter']; ?></td>
-                <td><?php echo $note['Verse']; ?></td>
-                <td><?php echo $note['UserEmail']; ?></td>
-                <td><?php echo $note['noteText']; ?></td>
-                <td><form action="." method="post">
-                    <input type="hidden" name="action"
-                           value="edit_note_form">
-                    <input type="hidden" name="note_id"
-                           value="<?php echo $note['id']; ?>">
-                    <input type="hidden" name="book_id"
-                           value="<?php echo $note['BookID']; ?>">
-                    <input type="hidden" name="volume_id"
-                           value="<?php echo $note['VolumeID']; ?>">
-                    <input type="hidden" name="chapter"
-                           value="<?php echo $note['Chapter']; ?>">
-                    <input type="hidden" name="verse"
-                           value="<?php echo $note['Verse']; ?>">
-                    <input type="submit" value="Edit">
-                </form></td>
-                <td><form action="." method="post">
-                    <input type="hidden" name="action"
-                           value="delete_note">
-                    <input type="hidden" name="note_id"
-                           value="<?php echo $note['id']; ?>">
-                    <input type="submit" value="Delete">
-                </form></td>
-            </tr>
-            <?php endforeach; ?>
+
         </table> 
     </section>
 </main>
