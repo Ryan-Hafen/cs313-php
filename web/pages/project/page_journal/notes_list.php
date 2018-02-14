@@ -1,49 +1,15 @@
 <?php 
 require $_SERVER['DOCUMENT_ROOT'].'/pages/project/model/database.php';
-// include $_SERVER['DOCUMENT_ROOT'].'/pages/project/view/header.php'; 
+include $_SERVER['DOCUMENT_ROOT'].'/pages/project/view/header.php'; 
 
-$current_page = htmlspecialchars($_SERVER["PHP_SELF"]);
-
-$dbUrl = getenv('DATABASE_URL');
-
-$filter_book = safe_post('book');
-
-try {
-	$books = $db->query('SELECT DISTINCT bookName 
-						   FROM books 
-						  ORDER BY bookName');
-						  
-    $params = [];
-	
-    $sql = 'SELECT n.id
-	             , n.userId
-				 , u.email
-				 , n.scripturesId
-				 , s.volumeID
-				 , v.volumeName
-				 , s.bookId
-				 , b.bookName
-				 , s.chapter
-				 , s.verse
-				 , n.note
-	          FROM notes AS n
-			  JOIN users AS u on n.userId = u.id
-			  JOIN scriptures AS s ON n.scripturesId = s.id
-			  JOIN volumes AS v ON s.volumeID = v.id
-			  JOIN books AS b ON s.bookId = b.id';
-			  
-    if ($filter_book != '') {
-      $sql .= ' WHERE b.bookName = :book';
-      $params['book'] = $filter_book;
-    }
-    $sql .= ' ORDER BY n.id';
-    $filtered_books = $db->prepare($sql);
-    $filtered_books->execute($params);
-  }
-  catch (PDOException $ex) {
-    print "<p>error: {$ex->getMessage()} </p>\n\n";
-    die();
-  }
+// Get all categories
+$query = 'SELECT * 
+            FROM books
+           ORDER BY ID';
+$statement = $db->prepare($query);
+$statement->execute();
+$books = $statement->fetchAll();
+$statement->closeCursor();
 
 
 ?>
@@ -51,33 +17,18 @@ try {
 
     
     <section>
-		<form name="form_books" action="<?php echo $current_page; ?>" method="post">
-			<select name="book">
-				<option value="">All</option>
-				<?php foreach ($books as $book) : ?>
-                <option value="<?php echo $book['bookName']; ?>" 
-                    <?php echo $book['bookName']; ?>
-                </option>
-				<?php endforeach; ?>
-			</select>
-			<input type="submit" value="Search" />
-		</form>
-				
-		
-        <table>
-            <tr>
-                <th>Volume</th>
-                <th>Book</th>
-                <th>Chapter</th>
-                <th>Verse</th>
-                <th>Email</th>
-                <th>Note</th>
-                <th>&nbsp;</th>
-                <th>&nbsp;</th>
-            </tr>
-
-
-        </table> 
+        <?php foreach ($books as $category) : ?>
+        <tr>    
+            <td><?php echo $book['bookName']; ?></td>
+            <td><form action="." method="post">
+                    <input type="hidden" name="category_ID"
+                        value="<?php echo $book['ID']; ?>">
+                    <input type="submit" value="Delete">
+                </form>
+            </td>
+        </tr>
+        <?php endforeach; ?>
+    </table>
     </section>
 </main>
 <?php include $_SERVER['DOCUMENT_ROOT'].'/pages/project/view/footer.php'; ?>
