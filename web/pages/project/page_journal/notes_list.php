@@ -17,11 +17,17 @@ $statement->closeCursor();
 
     
     <section>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>&nbsp;</th>
+        </tr>
+        
         <?php foreach ($books as $book) : ?>
         <tr>    
             <td><?php echo $book['bookName']; ?></td>
-            <td><form action="." method="post">
-                    <input type="hidden" name="category_ID"
+            <td><form action="delete_category.php" method="post">
+                    <input type="hidden" name="book_ID"
                         value="<?php echo $book['ID']; ?>">
                     <input type="submit" value="Delete">
                 </form>
