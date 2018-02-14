@@ -9,7 +9,10 @@ $dbUrl = getenv('DATABASE_URL');
 $filter_book = safe_post('book');
 
 try {
-	$books = $db->query('SELECT bookName FROM books ORDER BY id');
+	$books = $db->query('SELECT id AS bookId
+	                          , bookName 
+						   FROM books 
+						  ORDER BY id');
     $params = [];
     $sql = 'SELECT n.id
 	             , n.userId
@@ -62,8 +65,7 @@ try {
 				</form>
 				
 
-		<form name="form_books" action="<?php echo $current_page; ?>" method="post">				
-            <label>Search:  </label>
+		<form name="form_books" action="<?php echo $current_page; ?>" method="post">
             <select name="book_search">
             <?php foreach ($books as $book) : ?>
                 <option value="<?php echo $book['bookID']; ?>" 
