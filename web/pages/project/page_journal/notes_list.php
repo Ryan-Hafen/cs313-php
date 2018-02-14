@@ -36,7 +36,7 @@ try {
       $sql .= ' WHERE b.bookName = :book';
       $params['book'] = $filter_book;
     }
-    $sql .= ' ORDER BY s.bookId';
+    $sql .= ' ORDER BY n.id';
     $filtered_books = $db->prepare($sql);
     $filtered_books->execute($params);
   }
