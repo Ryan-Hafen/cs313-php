@@ -53,7 +53,7 @@ try {
 					<select name="book">
 						<option value="">All</option>
 							<?php foreach($books as $row) {
-								$book = $row['book'];
+								$book = $row['bookName'];
 								$selected = ($book == $filter_book) ? ' selected' : '';
 								echo "<option$selected>$book</option>";
 								}
