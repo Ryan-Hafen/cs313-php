@@ -15,19 +15,17 @@ $statement->closeCursor();
 ?>
 <main>
 
-    
-    <section>
-    <table>
-        <tr>
-            <th>Name</th>
-        </tr>
-        
-        <?php foreach ($books as $book) : ?>
-        <tr>    
-            <td><?php echo $book['bookname']; ?></td>
-        </tr>
-        <?php endforeach; ?>
-    </table>
-    </section>
+	<section>
+		<form name="form_books" action="<?php echo $current_page; ?>" method="post">
+		<select name="book">
+			<option value="">All</option>
+			<?php foreach($books as $book) {
+				echo "<option>$book</option>";
+			}
+			?>
+		</select>
+      <input type="submit" value="Search" />
+    </form>
+	</section>
 </main>
 <?php include $_SERVER['DOCUMENT_ROOT'].'/pages/project/view/footer.php'; ?>
