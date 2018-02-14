@@ -22,7 +22,7 @@ function get_notes() {
     $statement = $db->prepare($query);
     $statement->execute();
     return $statement;    
-}
+};
 
 $notes = get_notes();
 
