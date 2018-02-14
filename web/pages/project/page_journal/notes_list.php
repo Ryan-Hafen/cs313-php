@@ -47,7 +47,6 @@ try {
 
     
     <section>
-		<fieldset>
 			<legend>Search</legend>
 				<form name="form_books" action="<?php echo $current_page; ?>" method="post">
 					<select name="book">
@@ -61,7 +60,20 @@ try {
 					</select>
 					<input type="submit" value="Search" />
 				</form>
-		</fieldset>     
+				
+
+		<form name="form_books" action="<?php echo $current_page; ?>" method="post">				
+            <label>Search:  </label>
+            <select name="book_search">
+            <?php foreach ($books as $book) : ?>
+                <option value="<?php echo $book['bookID']; ?>" 
+                    <?php if ($book['bookID'] == $book_id) { echo 'selected="selected"';}?>>
+                    <?php echo $book['bookName']; ?>
+                </option>
+            <?php endforeach; ?>
+            </select><br>	
+			<input type="submit" value="Search" />
+		</form>	
 		
         <table>
             <tr>
