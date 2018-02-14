@@ -1,8 +1,34 @@
-<?php include '../view/header.php'; ?>
+<?php 
+require $_SERVER['DOCUMENT_ROOT'].'/project/model/database.php';
+include $_SERVER['DOCUMENT_ROOT'].'/project/view/header.php'; 
+
+function get_notes() {
+    global $db;
+    $query = 'SELECT n.id
+	               , n.note AS noteText
+				   , n.scripturesID
+				   , s.chapter
+				   , s.verse
+                   , s.bookID
+				   , b.bookName
+				   , b.volumeID
+				   , b.volumeName
+                   , u.email
+                FROM notes as n 
+                JOIN users as u on n.userId = u.id 
+                JOIN scriptures as s on n.scripturesID = s.id 
+                JOIN books as b on s.BookID = b.id 
+                JOIN volumes as v on b.VolumeID = v.id';
+    $statement = $db->prepare($query);
+    $statement->execute();
+    return $statement;    
+}
+
+$notes = get_notes();
+
+?>
 <main>
-<!--    <aside>
-        <?php include '../view/scripture_nav.php'; ?>
-    </aside>-->
+
     
     <section>
         <p><a href="?action=add_note_form">Add Note</a></p>     
