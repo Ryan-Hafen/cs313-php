@@ -11,7 +11,23 @@ $filter_book = safe_post('book');
 try {
 	$books = $db->query('SELECT bookName FROM books ORDER BY id');
     $params = [];
-    $sql = 'SELECT id, book, chapter, verse, content FROM scriptures';
+    $sql = 'SELECT n.id
+	             , n.userId
+				 , u.email
+				 , n.scripturesId
+				 , s.volumeID
+				 , v.volumeName
+				 , s.bookId
+				 , b.bookName
+				 , s.chapter
+				 , s.verse
+				 , n.note
+	          FROM notes AS n
+			  JOIN users AS u on n.userId = u.id
+			  JOIN scriptures AS s ON n.scripturesId = s.id
+			  JOIN volumes AS v ON s.volumeID = v.id
+			  JOIN books AS b ON s.bookId = b.id';
+			  
     if ($filter_book != '') {
       $sql .= ' WHERE book = :book';
       $params['book'] = $filter_book;
