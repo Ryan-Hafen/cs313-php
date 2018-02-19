@@ -15,10 +15,10 @@ $action = 'list_notes';
     // }
 // }  
 
-// if ($action == 'list_notes') {
-    // $notes = get_notes();
-    // include $_SERVER['DOCUMENT_ROOT'].'/pages/project/page_journal/notes_list.php';
- // } 
+if ($action == 'list_notes') {
+    $notes = get_notes();
+    include notes_list.php';
+ } 
 // else if ($action == 'edit_note_form') {
     // $note_id = filter_input(INPUT_POST, 'note_id', FILTER_VALIDATE_INT);
     // $book_id = filter_input(INPUT_POST, 'book_id', FILTER_VALIDATE_INT);
@@ -82,7 +82,9 @@ $action = 'list_notes';
     // }
 // }
 
-print 'index.php'
+print 'index.php';
+
+echo $action;
 ?>
 
 
