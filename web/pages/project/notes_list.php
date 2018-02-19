@@ -1,5 +1,5 @@
 <?php 
-// require $_SERVER['DOCUMENT_ROOT'].'/pages/project/model/database.php';
+require 'database.php';
 include 'header.php'; 
 
 $current_page = htmlspecialchars($_SERVER["PHP_SELF"]);
