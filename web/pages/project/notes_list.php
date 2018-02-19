@@ -58,6 +58,9 @@ if ($book_id != false) {
 		</select>
 		<input type="submit" value="Search" />
 	</form>
+    
+	<p><a href="?action=add_note_form">Add Note</a></p> 
+	
 	<table>
 		<tr>
             <th>Volume</th>
@@ -65,6 +68,8 @@ if ($book_id != false) {
             <th>Chapter</th>
             <th>Verse</th>
             <th>Note</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
         </tr>
         <?php foreach ($notes as $note) : ?>
         <tr>
@@ -73,6 +78,28 @@ if ($book_id != false) {
             <td><?php echo $note['chapter']; ?></td>
             <td><?php echo $note['verse']; ?></td>
             <td><?php echo $note['note']; ?></td>
+                <td><form action="." method="post">
+                    <input type="hidden" name="action"
+                           value="edit_note_form">
+                    <input type="hidden" name="note_id"
+                           value="<?php echo $note['id']; ?>">
+                    <input type="hidden" name="book_id"
+                           value="<?php echo $note['bookid']; ?>">
+                    <input type="hidden" name="volume_id"
+                           value="<?php echo $note['volumeid']; ?>">
+                    <input type="hidden" name="chapter"
+                           value="<?php echo $note['chapter']; ?>">
+                    <input type="hidden" name="verse"
+                           value="<?php echo $note['verse']; ?>">
+                    <input type="submit" value="Edit">
+                </form></td>
+                <td><form action="." method="post">
+                    <input type="hidden" name="action"
+                           value="delete_note">
+                    <input type="hidden" name="note_id"
+                           value="<?php echo $note['id']; ?>">
+                    <input type="submit" value="Delete">
+                </form></td>
         </tr>
         <?php endforeach; ?>
 	</table>
