@@ -6,7 +6,7 @@ require 'users_db.php';
 
 
 
-$action = 'list_notes'
+$action = 'list_notes';
 // $action = filter_input(INPUT_POST, 'action');
 // if ($action == NULL) {
     // $action = filter_input(INPUT_GET, 'action');
