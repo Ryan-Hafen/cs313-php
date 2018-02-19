@@ -50,4 +50,6 @@ catch (PDOException $ex) {
 
 
 // sql functions
-
+require 'notes_db.php';
+require 'scriptures_db.php';
+require 'users_db.php';
