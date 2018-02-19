@@ -51,7 +51,7 @@ catch (PDOException $ex) {
 
 // sql functions
 function get_notes() {
-    global $db;
+//    global $db;
     $query = 'SELECT n.id
 	               , n.note AS noteText
 				   , n.scripturesid
