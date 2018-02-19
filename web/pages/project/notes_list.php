@@ -29,16 +29,17 @@ if ($book_id != false) {
     $notes = $statement->fetchAll();
 	$statement->closeCursor();
 } else {
-    $queryNotes = 'SELECT * 
-                    FROM notes AS n
-				    JOIN users AS u ON n.userid = u.id
-				    JOIN scriptures AS s on n.scripturesid = s.id
-				    JOIN volumes AS v on s.volumeid = v.id
-				    JOIN books AS b on s.bookid = b.id';
-    $statement = $db->prepare($queryNotes);
-    $statement->execute();
-    $notes = $statement->fetchAll();
-	$statement->closeCursor();	
+    // $queryNotes = 'SELECT * 
+                    // FROM notes AS n
+				    // JOIN users AS u ON n.userid = u.id
+				    // JOIN scriptures AS s on n.scripturesid = s.id
+				    // JOIN volumes AS v on s.volumeid = v.id
+				    // JOIN books AS b on s.bookid = b.id';
+    // $statement = $db->prepare($queryNotes);
+    // $statement->execute();
+    // $notes = $statement->fetchAll();
+	// $statement->closeCursor();	
+	$notes = get_notes();
 }
 
 ?>
