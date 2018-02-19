@@ -1,9 +1,8 @@
 <?php
-print $_SERVER['DOCUMENT_ROOT'].'/project/model/database.php';
 require $_SERVER['DOCUMENT_ROOT'].'/project/model/database.php');
-// require $_SERVER['DOCUMENT_ROOT'].'/project/model/notes_db.php');
-// require $_SERVER['DOCUMENT_ROOT'].'/project/model/scriptures_db.php');
-// require $_SERVER['DOCUMENT_ROOT'].'/project/model/users_db.php');
+require $_SERVER['DOCUMENT_ROOT'].'/project/model/notes_db.php');
+require $_SERVER['DOCUMENT_ROOT'].'/project/model/scriptures_db.php');
+require $_SERVER['DOCUMENT_ROOT'].'/project/model/users_db.php');
 
 $action = filter_input(INPUT_POST, 'action');
 if ($action == NULL) {

@@ -3,19 +3,19 @@ function get_notes() {
     global $db;
     $query = 'SELECT n.id
 	               , n.note AS noteText
-				   , n.scripturesID
+				   , n.scripturesid
 				   , s.chapter
 				   , s.verse
-                   , s.bookID
-				   , b.bookName
-				   , b.volumeID
-				   , b.volumeName
+                   , s.bookid
+				   , b.bookname
+				   , s.volumeid
+				   , b.volumename
                    , u.email
                 FROM notes as n 
-                JOIN users as u on n.userId = u.id 
-                JOIN scriptures as s on n.scripturesID = s.id 
-                JOIN books as b on s.BookID = b.id 
-                JOIN volumes as v on b.VolumeID = v.id';
+                JOIN users as u on n.userid = u.id 
+                JOIN scriptures as s on n.scripturesid = s.id 
+                JOIN books as b on s.bookid = b.id 
+                JOIN volumes as v on s.volumeid = v.id';
     $statement = $db->prepare($query);
     $statement->execute();
     return $statement;    
@@ -25,19 +25,19 @@ function get_note($note_id) {
     global $db;
     $query = 'SELECT n.id
 	               , n.note AS noteText
-				   , n.scripturesID
+				   , n.scripturesid
 				   , s.chapter
 				   , s.verse
-                   , s.bookID
-				   , b.bookName
-				   , b.volumeID
-				   , b.volumeName
+                   , s.bookid
+				   , b.bookname
+				   , s.volumeid
+				   , b.volumename
                    , u.email
                 FROM notes as n 
-                JOIN users as u on n.userId = u.id 
-                JOIN scriptures as s on n.scripturesID = s.id 
-                JOIN books as b on s.BookID = b.id 
-                JOIN volumes as v on b.VolumeID = v.id
+                JOIN users as u on n.userid = u.id 
+                JOIN scriptures as s on n.scripturesid = s.id 
+                JOIN books as b on s.bookid = b.id 
+                JOIN volumes as v on s.volumeid = v.id
                WHERE n.id = :note_id';
     $statement = $db->prepare($query);
     $statement->bindValue(":note_id", $note_id);
@@ -49,7 +49,7 @@ function get_note($note_id) {
 
 function get_volume_list() {
     global $db;
-    $query = 'SELECT id as volumeID, volumeName
+    $query = 'SELECT id as volumeid, volumename
                 FROM volumes';
     $statement = $db->prepare($query);
     $statement->execute();
@@ -58,7 +58,7 @@ function get_volume_list() {
 
 function get_book_list() {
     global $db;
-    $query = 'SELECT ID AS bookID, bookName
+    $query = 'SELECT ID AS bookid, bookname
                 FROM books';
     $statement = $db->prepare($query);
     $statement->execute();
@@ -85,9 +85,9 @@ function get_verse_list() {
 
 function get_scripture_id($book_id, $chapter_id, $verse_id) {
     global $db;
-    $query = 'SELECT s.id as scriptureID
+    $query = 'SELECT s.id as scriptureid
                 FROM scriptures as s
-               WHERE s.bookID = :book_id
+               WHERE s.bookid = :book_id
                  AND s.chapter = :chapter_id
                  AND s.verse = :verse_id';
     $statement = $db->prepare($query);
@@ -105,7 +105,7 @@ function get_scripture_id($book_id, $chapter_id, $verse_id) {
 function delete_note($note_id) {
     global $db;
     $query = 'DELETE FROM notes
-                WHERE ID = :note_id';
+                WHERE id = :note_id';
     $statement = $db->prepare($query);
     $statement->bindValue(':note_id',$note_id);
     $statement->execute();
@@ -114,11 +114,11 @@ function delete_note($note_id) {
 
 function add_note($note_text, $book_id, $chapter_id, $verse_id) {
     global $db;
-    $query = 'INSERT INTO notes(Note, ScripturesID, UsersID)
+    $query = 'INSERT INTO notes(note, scriptureid, userid)
               VALUES(:note_text
 			        , (SELECT id 
                          FROM scriptures 
-                        WHERE BookID = :book_id 
+                        WHERE bookid = :book_id 
                           AND chapter = :chapter_id 
                           AND verse = :verse_id)
                     , 1)';
@@ -137,9 +137,9 @@ function edit_note($note_id, $book_id, $chapter_id, $verse_id, $note_text) {
                  Set n.note = :note_text
                    , n.scripturesID = (SELECT id 
                                          FROM scriptures 
-                                        WHERE BookID = :book_id
-                                          AND Chapter = :chapter_id
-                                          AND Verse = :verse_id)
+                                        WHERE bookid = :book_id
+                                          AND chapter = :chapter_id
+                                          AND verse = :verse_id)
                WHERE n.ID = :note_id';
     $statement = $db->prepare($query);
     $statement->bindValue(':note_id', $note_id);
