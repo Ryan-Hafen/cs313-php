@@ -3,7 +3,7 @@ require $_SERVER['DOCUMENT_ROOT'].'/pages/project/model/database.php';
 // require $_SERVER['DOCUMENT_ROOT'].'/pages/project/model/notes_db.php');
 // require $_SERVER['DOCUMENT_ROOT'].'/pages/project/model/scriptures_db.php');
 // require $_SERVER['DOCUMENT_ROOT'].'/pages/project/model/users_db.php');
-include $_SERVER['DOCUMENT_ROOT'].'/pages/project/page_journal/notes_list.php';
+
 print 'index.php'
 // $action = filter_input(INPUT_POST, 'action');
 // if ($action == NULL) {
@@ -15,7 +15,7 @@ print 'index.php'
 
 // if ($action == 'list_notes') {
     // $notes = get_notes();
-    
+    // include $_SERVER['DOCUMENT_ROOT'].'/pages/project/page_journal/notes_list.php';
  // } 
 // else if ($action == 'edit_note_form') {
     // $note_id = filter_input(INPUT_POST, 'note_id', FILTER_VALIDATE_INT);
