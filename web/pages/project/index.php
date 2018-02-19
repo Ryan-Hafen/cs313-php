@@ -1,8 +1,8 @@
 <?php
 require 'database.php';
-// require $_SERVER['DOCUMENT_ROOT'].'/pages/project/model/notes_db.php');
-// require $_SERVER['DOCUMENT_ROOT'].'/pages/project/model/scriptures_db.php');
-// require $_SERVER['DOCUMENT_ROOT'].'/pages/project/model/users_db.php');
+require 'notes_db.php';
+require 'scriptures_db.php';
+require 'users_db.php';
 
 print 'index.php'
 // $action = filter_input(INPUT_POST, 'action');
