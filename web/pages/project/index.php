@@ -16,7 +16,7 @@ $action = 'list_notes';
 // }  
 
 if ($action == 'list_notes') {
-    $notes = get_notes();
+    // $notes = get_notes();
     include notes_list.php';
  } 
 // else if ($action == 'edit_note_form') {
