@@ -15,6 +15,27 @@ $statement->execute();
 $books = $statement->fetchAll();
 $statement->closeCursor();
 
+function get_notes() {
+    $query = 'SELECT n.id
+	               , n.note AS noteText
+				   , n.scripturesid
+				   , s.chapter
+				   , s.verse
+                   , s.bookid
+				   , b.bookname
+				   , s.volumeid
+				   , b.volumename
+                   , u.email
+                FROM notes as n 
+                JOIN users as u on n.userid = u.id 
+                JOIN scriptures as s on n.scripturesid = s.id 
+                JOIN books as b on s.bookid = b.id 
+                JOIN volumes as v on s.volumeid = v.id';
+    $statement = $db->prepare($query);
+    $statement->execute();
+    return $statement;    
+}
+
 if ($book_id != false) {
     $queryNotes = 'SELECT * 
                     FROM notes AS n
@@ -106,4 +127,4 @@ if ($book_id != false) {
 
 
 
-<?php include $_SERVER['DOCUMENT_ROOT'].'/pages/project/view/footer.php'; ?>
+<?php include 'footer.php'; ?>
