@@ -78,7 +78,7 @@ if ($book_id != false) {
             <td><?php echo $note['chapter']; ?></td>
             <td><?php echo $note['verse']; ?></td>
             <td><?php echo $note['note']; ?></td>
-                <td><form action="edit_note_form" method="post">
+                <td><form action="edit_note_form.php" method="post">
                     <input type="hidden" name="note_id"
                            value="<?php echo $note['id']; ?>">
                     <input type="hidden" name="book_id"
