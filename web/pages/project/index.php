@@ -4,7 +4,7 @@ require 'notes_db.php';
 require 'scriptures_db.php';
 require 'users_db.php';
 
-print 'index.php'
+
 
 $action = 'list_notes'
 // $action = filter_input(INPUT_POST, 'action');
@@ -81,6 +81,8 @@ $action = 'list_notes'
         // include('notes_list.php');
     // }
 // }
+
+print 'index.php'
 ?>
 
 
