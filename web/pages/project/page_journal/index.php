@@ -1,6 +1,6 @@
 <?php
 require $_SERVER['DOCUMENT_ROOT'].'/pages/project/model/database.php';
-// require $_SERVER['DOCUMENT_ROOT'].'/pages/project/model/notes_db.php');
+require $_SERVER['DOCUMENT_ROOT'].'/pages/project/model/notes_db.php');
 // require $_SERVER['DOCUMENT_ROOT'].'/pages/project/model/scriptures_db.php');
 // require $_SERVER['DOCUMENT_ROOT'].'/pages/project/model/users_db.php');
 
