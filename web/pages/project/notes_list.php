@@ -78,9 +78,7 @@ if ($book_id != false) {
             <td><?php echo $note['chapter']; ?></td>
             <td><?php echo $note['verse']; ?></td>
             <td><?php echo $note['note']; ?></td>
-                <td><form action="." method="post">
-                    <input type="hidden" name="action"
-                           value="edit_note_form">
+                <td><form action="edit_note_form" method="post">
                     <input type="hidden" name="note_id"
                            value="<?php echo $note['id']; ?>">
                     <input type="hidden" name="book_id"
@@ -93,9 +91,7 @@ if ($book_id != false) {
                            value="<?php echo $note['verse']; ?>">
                     <input type="submit" value="Edit">
                 </form></td>
-                <td><form action="." method="post">
-                    <input type="hidden" name="action"
-                           value="delete_note">
+                <td><form action="<?php echo $current_page; ?>" method="post">
                     <input type="hidden" name="note_id"
                            value="<?php echo $note['id']; ?>">
                     <input type="submit" value="Delete">
