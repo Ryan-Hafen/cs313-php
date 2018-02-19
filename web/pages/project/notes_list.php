@@ -16,7 +16,7 @@ $books = $statement->fetchAll();
 $statement->closeCursor();
 
 function get_notes() {
-    $query = ''SELECT * 
+    $query = 'SELECT * 
                     FROM notes AS n
 				    JOIN users AS u ON n.userid = u.id
 				    JOIN scriptures AS s on n.scripturesid = s.id
