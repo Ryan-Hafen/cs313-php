@@ -6,13 +6,14 @@ require 'users_db.php';
 
 print 'index.php'
 
+$action = 'list_notes'
 // $action = filter_input(INPUT_POST, 'action');
-if ($action == NULL) {
-    $action = filter_input(INPUT_GET, 'action');
-    if ($action == NULL) {
-        $action = 'list_notes';
-    }
-}  
+// if ($action == NULL) {
+    // $action = filter_input(INPUT_GET, 'action');
+    // if ($action == NULL) {
+        // $action = 'list_notes';
+    // }
+// }  
 
 // if ($action == 'list_notes') {
     // $notes = get_notes();
