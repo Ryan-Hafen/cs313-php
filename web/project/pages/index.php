@@ -40,12 +40,13 @@ else if ($action == 'edit_note_form') {
     $chapter_id = filter_input(INPUT_POST, 'chapter_id', FILTER_VALIDATE_INT);
     $verse_id = filter_input(INPUT_POST, 'verse_id', FILTER_VALIDATE_INT);
     $note_text = filter_input(INPUT_POST, 'note_text');
+	
+	$scriptures_id = get_scripture_id($book_id, $chapter_id, $verse_id);
     
     if ($note_id == false || $book_id == false || $chapter_id == false || $verse_id == false || $note_text == "") {
         $error = 'All fields are required. note_id = ' .$note_id;
         include('../errors/error.php');
     } else {
-		$scriptures_id = get_scripture_id($book_id, $chapter_id, $verse_id);
         edit_note($note_id, $scriptures_id, $note_text);
         header("Location: .?note_id=$note_id");
         include('notes_list.php');
@@ -71,11 +72,13 @@ else if ($action == 'edit_note_form') {
     $book_id = filter_input(INPUT_POST, 'book_id', FILTER_VALIDATE_INT);
     $chapter_id = filter_input(INPUT_POST, 'chapter_id', FILTER_VALIDATE_INT);
     $verse_id = filter_input(INPUT_POST, 'verse_id', FILTER_VALIDATE_INT);
+	
+	$scriptures_id = get_scripture_id($book_id, $chapter_id, $verse_id);
+		
     if ($book_id == false) {
         $error = "Invalid product data. Check all fields and try again.";
         include('../errors/error.php');
     } else {
-		$scriptures_id = get_scripture_id($book_id, $chapter_id, $verse_id);
         add_note($note_text, $scriptures_id);
         header("Location: .?note_id=$note_id");
         include('notes_list.php');
