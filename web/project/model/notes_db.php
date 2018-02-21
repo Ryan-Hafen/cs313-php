@@ -123,7 +123,7 @@ function add_note($note_text, $book_id, $chapter_id, $verse_id, $email) {
     $query = 'INSERT INTO notes(note, scripturesid, usersid)
               VALUES(:note_text, (SELECT id 
                                     FROM scriptures 
-                                   WHERE BookID = :book_id 
+                                   WHERE bookid = :book_id 
                                      AND chapter = :chapter_id 
                                      AND verse = :verse_id)
                     , (SELECT id 
@@ -143,12 +143,12 @@ function edit_note($note_id, $book_id, $chapter_id, $verse_id, $note_text) {
     global $db;
     $query = 'Update notes as n
                  Set n.note = :note_text
-                   , n.scripturesID = (SELECT id 
+                   , n.scripturesid = (SELECT id 
                                          FROM scriptures 
-                                        WHERE BookID = :book_id
-                                          AND Chapter = :chapter_id
-                                          AND Verse = :verse_id)
-               WHERE n.ID = :note_id';
+                                        WHERE bookid = :book_id
+                                          AND chapter = :chapter_id
+                                          AND verse = :verse_id)
+               WHERE n.id = :note_id';
     $statement = $db->prepare($query);
     $statement->bindValue(':note_id', $note_id);
     $statement->bindValue(':book_id', $book_id);
