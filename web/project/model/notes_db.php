@@ -118,42 +118,26 @@ function delete_note($note_id) {
     $statement->closeCursor();
 }
 
-function add_note($note_text, $book_id, $chapter_id, $verse_id, $email) {
+function add_note($note_text, $scriptures_id) {
     global $db;
     $query = 'INSERT INTO notes(note, scripturesid, usersid)
-              VALUES(:note_text, (SELECT id 
-                                    FROM scriptures 
-                                   WHERE bookid = :book_id 
-                                     AND chapter = :chapter_id 
-                                     AND verse = :verse_id)
-                    , (SELECT id 
-                                    FROM users 
-                                   WHERE email = :email))';
+              VALUES(:note_text, :scripture_id, 1)';
     $statement = $db->prepare($query);
     $statement->bindValue(':note_text', $note_text);
-    $statement->bindValue(':book_id', $book_id);
-    $statement->bindValue(':chapter_id', $chapter_id);
-    $statement->bindValue(':verse_id', $verse_id);
-    $statement->bindValue(':email', $email);
+    $statement->bindValue(':scriptures_id', $scriptures_id);
     $statement->execute();
     $statement->closeCursor();
 }
 
-function edit_note($note_id, $book_id, $chapter_id, $verse_id, $note_text) {
+function edit_note($note_id, $scriptures_id, $note_text) {
     global $db;
     $query = 'Update notes as n
                  Set n.note = :note_text
-                   , n.scripturesid = (SELECT id 
-                                         FROM scriptures 
-                                        WHERE bookid = :book_id
-                                          AND chapter = :chapter_id
-                                          AND verse = :verse_id)
+                   , n.scripturesid = :scripture_id
                WHERE n.id = :note_id';
     $statement = $db->prepare($query);
     $statement->bindValue(':note_id', $note_id);
-    $statement->bindValue(':book_id', $book_id);
-    $statement->bindValue(':chapter_id', $chapter_id);
-    $statement->bindValue(':verse_id', $verse_id);
+    $statement->bindValue(':scriptures_id', $scriptures_id);
     $statement->bindValue(':note_text', $note_text);
     $statement->execute();
     $statement->closeCursor();
