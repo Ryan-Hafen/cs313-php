@@ -8,8 +8,8 @@
         <label>Volume:</label>
         <select name="volume_id">
         <?php foreach ($volumes as $volume) : ?>
-            <option value="<?php echo $volume['volumeID']; ?>">
-                <?php echo $volume['volumeName']; ?>
+            <option value="<?php echo $volume['volumeid']; ?>">
+                <?php echo $volume['volumename']; ?>
             </option>
         <?php endforeach; ?>
         </select>
@@ -17,8 +17,8 @@
         <label>Book:</label>
         <select name="book_id">
         <?php foreach ($books as $book) : ?>
-            <option value="<?php echo $book['bookID']; ?>">
-                <?php echo $book['bookName']; ?>
+            <option value="<?php echo $book['bookid']; ?>">
+                <?php echo $book['bookname']; ?>
             </option>
         <?php endforeach; ?>
         </select>
