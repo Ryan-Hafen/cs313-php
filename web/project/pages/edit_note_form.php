@@ -8,9 +8,9 @@
             <label>Volume:  </label>
             <select name="volume_id">
             <?php foreach ($volumes as $volume) : ?>
-                <option value="<?php echo $volume['volumeID']; ?>" 
-                    <?php if ($volume['volumeID'] == $volume_id) { echo 'selected="selected"';}?>>
-                    <?php echo $volume['volumeName']; ?>
+                <option value="<?php echo $volume['volumeid']; ?>" 
+                    <?php if ($volume['volumeid'] == $volume_id) { echo 'selected="selected"';}?>>
+                    <?php echo $volume['volumename']; ?>
                 </option>
             <?php endforeach; ?>
             </select><br>
@@ -18,9 +18,9 @@
             <label>Book:  </label>
             <select name="book_id">
             <?php foreach ($books as $book) : ?>
-                <option value="<?php echo $book['bookID']; ?>" 
-                    <?php if ($book['bookID'] == $book_id) { echo 'selected="selected"';}?>>
-                    <?php echo $book['bookName']; ?>
+                <option value="<?php echo $book['bookid']; ?>" 
+                    <?php if ($book['bookid'] == $book_id) { echo 'selected="selected"';}?>>
+                    <?php echo $book['bookname']; ?>
                 </option>
             <?php endforeach; ?>
             </select><br>
@@ -46,7 +46,7 @@
             </select><br>
             
             <label>Note:</label>
-            <textarea name="note_text" id="note_text" rows="4" cols="50"><?php echo $note['noteText']; ?></textarea><br><br>
+            <textarea name="note_text" id="note_text" rows="4" cols="50"><?php echo $note['note']; ?></textarea><br><br>
             <input type="hidden" name="note_id" value="<?php echo $note_id; ?>">
             
             <input type="submit" value="Save Changes"><br>
