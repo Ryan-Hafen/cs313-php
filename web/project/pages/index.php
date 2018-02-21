@@ -45,7 +45,7 @@ else if ($action == 'edit_note_form') {
         $error = 'All fields are required. note_id = ' .$note_id;
         include('../errors/error.php');
     } else {
-		$scriptures_id = get_scripture_id($book_id, $chapter_id, $verse_id)
+		$scriptures_id = get_scripture_id($book_id, $chapter_id, $verse_id);
         edit_note($note_id, $scriptures_id, $note_text);
         header("Location: .?note_id=$note_id");
         include('notes_list.php');
@@ -75,8 +75,8 @@ else if ($action == 'edit_note_form') {
         $error = "Invalid product data. Check all fields and try again.";
         include('../errors/error.php');
     } else {
-		$scriptures_id = get_scripture_id($book_id, $chapter_id, $verse_id)
-        add_note($note_text, $scriptures_id);
+		$scriptures_id = get_scripture_id($book_id, $chapter_id, $verse_id);
+        add_note($note_text, $book_id, $chapter_id, $verse_id);
         header("Location: .?note_id=$note_id");
         include('notes_list.php');
     }
