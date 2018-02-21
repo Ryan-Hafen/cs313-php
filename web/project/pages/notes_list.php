@@ -1,8 +1,6 @@
 <?php include '../view/header.php'; ?>
 <main>
-<!--    <aside>
-        <?php include '../view/categories_nav.php'; ?>
-    </aside>-->
+
     
     <section>
         <p><a href="?action=add_note_form">Add Note</a></p>     
@@ -20,25 +18,25 @@
 
             <?php foreach ($notes as $note) : ?>
             <tr>
-                <td><?php echo $note['volumeName']; ?></td>
-                <td><?php echo $note['bookName']; ?></td>
-                <td><?php echo $note['Chapter']; ?></td>
-                <td><?php echo $note['Verse']; ?></td>
-                <td><?php echo $note['UserEmail']; ?></td>
-                <td><?php echo $note['noteText']; ?></td>
+                <td><?php echo $note['volumename']; ?></td>
+                <td><?php echo $note['bookname']; ?></td>
+                <td><?php echo $note['chapter']; ?></td>
+                <td><?php echo $note['verse']; ?></td>
+                <td><?php echo $note['email']; ?></td>
+                <td><?php echo $note['note']; ?></td>
                 <td><form action="." method="post">
                     <input type="hidden" name="action"
                            value="edit_note_form">
                     <input type="hidden" name="note_id"
                            value="<?php echo $note['id']; ?>">
                     <input type="hidden" name="book_id"
-                           value="<?php echo $note['BookID']; ?>">
+                           value="<?php echo $note['bookid']; ?>">
                     <input type="hidden" name="volume_id"
-                           value="<?php echo $note['VolumeID']; ?>">
+                           value="<?php echo $note['volumeid']; ?>">
                     <input type="hidden" name="chapter"
-                           value="<?php echo $note['Chapter']; ?>">
+                           value="<?php echo $note['chapter']; ?>">
                     <input type="hidden" name="verse"
-                           value="<?php echo $note['Verse']; ?>">
+                           value="<?php echo $note['verse']; ?>">
                     <input type="submit" value="Edit">
                 </form></td>
                 <td><form action="." method="post">

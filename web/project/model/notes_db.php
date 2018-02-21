@@ -1,12 +1,22 @@
 <?php
 function get_notes() {
     global $db;
-    $query = 	'SELECT * 
-					FROM notes AS n
-					JOIN users AS u ON n.userid = u.id
-					JOIN scriptures AS s on n.scripturesid = s.id
-					JOIN volumes AS v on s.volumeid = v.id
-					JOIN books AS b on s.bookid = b.id';
+    $query ='SELECT n.id
+			      , n.userid
+			      , u.email
+			      , n.scripturesid
+			      , s.volumeid
+			      , v.volumename
+			      , s.bookid
+			      , b.bookname
+			      , s.chapter
+			      , s.verse
+			      , n.note
+			   FROM notes AS n
+			   JOIN users AS u ON n.userid = u.id
+			   JOIN scriptures AS s on n.scripturesid = s.id
+			   JOIN volumes AS v on s.volumeid = v.id
+			   JOIN books AS b on s.bookid = b.id';
     $statement = $db->prepare($query);
     $statement->execute();
     return $statement;
@@ -14,13 +24,22 @@ function get_notes() {
 
 function get_note($note_id) {
     global $db;
-    $query = 'SELECT n.id, ltrim(rtrim(n.Note)) AS noteText, n.ScripturesID, s.Chapter, s.Verse
-                   , s.BookID, b.Name AS bookName, b.VolumeID, b.Name AS volumeName
-                FROM notes as n 
-                JOIN users as u on n.UsersId = u.id 
-                JOIN scriptures as s on n.ScripturesID = s.id 
-                JOIN books as b on s.BookID = b.id 
-                JOIN volumes as v on b.VolumeID = v.id
+    $query = 'SELECT n.id
+			      , n.userid
+			      , u.email
+			      , n.scripturesid
+			      , s.volumeid
+			      , v.volumename
+			      , s.bookid
+			      , b.bookname
+			      , s.chapter
+			      , s.verse
+			      , n.note
+			   FROM notes AS n
+			   JOIN users AS u ON n.userid = u.id
+			   JOIN scriptures AS s on n.scripturesid = s.id
+			   JOIN volumes AS v on s.volumeid = v.id
+			   JOIN books AS b on s.bookid = b.id
                WHERE n.id = :note_id';
     $statement = $db->prepare($query);
     $statement->bindValue(":note_id", $note_id);
@@ -32,7 +51,8 @@ function get_note($note_id) {
 
 function get_volume_list() {
     global $db;
-    $query = 'SELECT id as volumeID, Name AS volumeName
+    $query = 'SELECT id as volumeid
+	               , volumeame
                 FROM volumes';
     $statement = $db->prepare($query);
     $statement->execute();
@@ -41,26 +61,13 @@ function get_volume_list() {
 
 function get_book_list() {
     global $db;
-    $query = 'SELECT ID AS bookID, Name AS bookName
+    $query = 'SELECT ID AS bookid
+	               , bookname
                 FROM books';
     $statement = $db->prepare($query);
     $statement->execute();
     return $statement; 
 }
-
-//function get_book_list($volume_id) {
-//    global $db;
-//    $query = 'SELECT b.ID AS bookID, b.Name AS bookName
-//                FROM books as b
-//                JOIN volumes as v on b.volumeID = v.id
-//               WHERE v.id = :volume_id';
-//    $statement = $db->prepare($query);
-//    $statement->bindValue(":volume_id", $volume_id);
-//    $statement->execute();
-//    $books = $statement->fetchAll();
-//    $statement->closeCursor();
-//    return $books; 
-//}
 
 function get_chapter_list() {
     global $db;
@@ -109,20 +116,23 @@ function delete_note($note_id) {
     $statement->closeCursor();
 }
 
-function add_note($note_text, $book_id, $chapter_id, $verse_id) {
+function add_note($note_text, $book_id, $chapter_id, $verse_id, $email) {
     global $db;
-    $query = 'INSERT INTO notes(Note, ScripturesID, UsersID)
+    $query = 'INSERT INTO notes(note, scripturesid, usersid)
               VALUES(:note_text, (SELECT id 
                                     FROM scriptures 
                                    WHERE BookID = :book_id 
                                      AND chapter = :chapter_id 
                                      AND verse = :verse_id)
-                    , 1)';
+                    , (SELECT id 
+                                    FROM users 
+                                   WHERE email = :email))';
     $statement = $db->prepare($query);
     $statement->bindValue(':note_text', $note_text);
     $statement->bindValue(':book_id', $book_id);
     $statement->bindValue(':chapter_id', $chapter_id);
     $statement->bindValue(':verse_id', $verse_id);
+    $statement->bindValue(':email', $email);
     $statement->execute();
     $statement->closeCursor();
 }
