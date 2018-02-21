@@ -79,9 +79,10 @@ else if ($action == 'edit_note_form') {
         $error = "Invalid product data. Check all fields and try again.";
         include('../errors/error.php');
     } else {
-        add_note($note_text, $scriptures_id);
-        header("Location: .?note_id=$note_id");
-        include('notes_list.php');
+        // add_note($note_text, $scriptures_id);
+        // header("Location: .?note_id=$note_id");
+        // include('notes_list.php');
+		print $scriptures_id;
     }
 }
 ?>
