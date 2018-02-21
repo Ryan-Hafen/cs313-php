@@ -52,7 +52,7 @@ function get_note($note_id) {
 function get_volume_list() {
     global $db;
     $query = 'SELECT id as volumeid
-	               , volumeame
+	               , volumename
                 FROM volumes';
     $statement = $db->prepare($query);
     $statement->execute();
@@ -72,7 +72,8 @@ function get_book_list() {
 function get_chapter_list() {
     global $db;
     $query = 'SELECT distinct chapter
-                FROM scriptures';
+                FROM scriptures
+				order by chapter';
     $statement = $db->prepare($query);
     $statement->execute();
     return $statement; 
@@ -80,8 +81,9 @@ function get_chapter_list() {
 
 function get_verse_list() {
     global $db;
-    $query = 'SELECT Distinct verse
-                FROM scriptures';
+    $query = 'SELECT distinct verse
+                FROM scriptures
+				order by verse';
     $statement = $db->prepare($query);
     $statement->execute();
     return $statement; 

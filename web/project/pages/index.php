@@ -33,6 +33,7 @@ else if ($action == 'edit_note_form') {
         include('edit_note_form.php');
     }
 } else if ($action == 'edit_note') {
+	
     $note_id = filter_input(INPUT_POST, 'note_id', FILTER_VALIDATE_INT);
     $book_id = filter_input(INPUT_POST, 'book_id', FILTER_VALIDATE_INT);
     $volume_id = filter_input(INPUT_POST, 'volume_id', FILTER_VALIDATE_INT);
