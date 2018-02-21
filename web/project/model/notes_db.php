@@ -121,7 +121,7 @@ function delete_note($note_id) {
 function add_note($note_text, $scriptures_id) {
     global $db;
     $query = 'INSERT INTO notes(note, scripturesid, usersid)
-              VALUES(:note_text, :scripture_id, 1)';
+              VALUES(:note_text, :scriptures_id, 1)';
     $statement = $db->prepare($query);
     $statement->bindValue(':note_text', $note_text);
     $statement->bindValue(':scriptures_id', $scriptures_id);
@@ -133,7 +133,7 @@ function edit_note($note_id, $scriptures_id, $note_text) {
     global $db;
     $query = 'Update notes as n
                  Set n.note = :note_text
-                   , n.scripturesid = :scripture_id
+                   , n.scripturesid = :scriptures_id
                WHERE n.id = :note_id';
     $statement = $db->prepare($query);
     $statement->bindValue(':note_id', $note_id);
