@@ -76,7 +76,7 @@ else if ($action == 'edit_note_form') {
         include('../errors/error.php');
     } else {
 		$scriptures_id = get_scripture_id($book_id, $chapter_id, $verse_id);
-        add_note($note_text, $book_id, $chapter_id, $verse_id);
+        add_note($note_text, $scriptures_id);
         header("Location: .?note_id=$note_id");
         include('notes_list.php');
     }
