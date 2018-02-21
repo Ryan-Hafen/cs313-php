@@ -131,10 +131,10 @@ function add_note($note_text, $scriptures_id) {
 
 function edit_note($note_id, $scriptures_id, $note_text) {
     global $db;
-    $query = 'Update notes as n
-                 Set n.note = :note_text
-                   , n.scripturesid = :scriptures_id
-               WHERE n.id = :note_id';
+    $query = 'Update notes
+                 Set note = :note_text
+                   , scripturesid = :scriptures_id
+               WHERE id = :note_id';
     $statement = $db->prepare($query);
     $statement->bindValue(':note_id', $note_id);
     $statement->bindValue(':scriptures_id', $scriptures_id);
