@@ -105,7 +105,6 @@ else if ($action == 'edit_note') {
         edit_note($note_id, $scriptures_id, $note_text);
 		
 		$notes = get_notes($user_id);
-        header("Location: .?note_id=$note_id");
 		include('notes_list.php');
     }
 } 
