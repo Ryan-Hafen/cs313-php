@@ -93,7 +93,7 @@ function get_scripture_id($book_id, $chapter_id, $verse_id) {
     global $db;
     $query = 'SELECT id
                 FROM scriptures
-               WHERE bookID = :book_id
+               WHERE bookid = :book_id
                  AND chapter = :chapter_id
                  AND verse = :verse_id';
     $statement = $db->prepare($query);
