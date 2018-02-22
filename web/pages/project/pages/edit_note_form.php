@@ -4,7 +4,6 @@
         
         <form action="." method="post" class="form">
         <input type="hidden" name="action" value="edit_note">
-		<input type="hidden" name="user_id" value="<?php echo $note['userid']; ?>">
         
             <label>Volume:  </label>
             <select name="volume_id">
@@ -48,8 +47,9 @@
             
             <label>Note:</label>
             <textarea name="note_text" id="note_text" rows="4" cols="50"><?php echo $note['note']; ?></textarea><br><br>
-            <input type="hidden" name="note_id" value="<?php echo $note_id; ?>">
             
+			<input type="hidden" name="note_id" value="<?php echo $note_id; ?>">
+			<input type="hidden" name="user_id" value="<?php echo $userid; ?>">
             <input type="submit" value="Save Changes"><br>
         </form>
     </main>
