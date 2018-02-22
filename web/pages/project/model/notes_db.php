@@ -91,11 +91,11 @@ function get_verse_list() {
 
 function get_scripture_id($book_id, $chapter_id, $verse_id) {
     global $db;
-    $query = 'SELECT s.id as scriptureID
-                FROM scriptures as s
-               WHERE s.bookID = :book_id
-                 AND s.chapter = :chapter_id
-                 AND s.verse = :verse_id';
+    $query = 'SELECT s.id
+                FROM scriptures
+               WHERE bookID = :book_id
+                 AND chapter = :chapter_id
+                 AND verse = :verse_id';
     $statement = $db->prepare($query);
     $statement->bindValue(":book_id", $book_id);
     $statement->bindValue(":chapter_id", $chapter_id);
