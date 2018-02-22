@@ -91,7 +91,7 @@ function get_verse_list() {
 
 function get_scripture_id($book_id, $chapter_id, $verse_id) {
     global $db;
-    $query = 'SELECT s.id
+    $query = 'SELECT id
                 FROM scriptures
                WHERE bookID = :book_id
                  AND chapter = :chapter_id
@@ -103,7 +103,7 @@ function get_scripture_id($book_id, $chapter_id, $verse_id) {
     $statement->execute();
     $scripture = $statement->fetch();
     $statement->closeCursor();
-    $scripture_id = $scripture['scriptureID'];
+    $scripture_id = $scripture['id'];
     return $scripture_id; 
 }
 
