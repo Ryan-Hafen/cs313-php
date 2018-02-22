@@ -3,7 +3,7 @@
     <h1>Sign in</h1>
     
     <form action="." method="post" class="form">
-        <input type="hidden" name="action" value="list_notes">
+        <input type="hidden" name="action" value="sign_in">
 
         <input type="text" id="email" name="email" placeholder="Email" value="" /> 
         <br>

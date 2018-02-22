@@ -20,13 +20,13 @@ else if ($action == 'sign_in'){
     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_INT);
     $password = filter_input(INPUT_POST, 'password', FILTER_VALIDATE_INT);
 	
-	// $email_in_use = get_user_by_email($email);
-	// $password_check = get_password($email);
+	$email_in_use = get_user_by_email($email);
+	$password_check = get_password($email);
 	
 	echo $email;
 	echo $password;
-	// echo $email_in_use;
-	// echo $password_check;
+	echo $email_in_use;
+	echo $password_check;
 	
     // if ($email == "" || $password == "") {
         // $error = "All fields are required.";
