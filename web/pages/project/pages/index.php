@@ -147,7 +147,6 @@ else if ($action == 'add_note_form') {
 		// // echo $note_text;
 		
         // add_note($note_text, $scriptures_id);
-        // header("Location: .?note_id=$note_id");
         // include('notes_list.php');
     // }
 // }
