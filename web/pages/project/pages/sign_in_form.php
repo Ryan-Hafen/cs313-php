@@ -14,7 +14,7 @@
         <br>
     </form>
     <p class="last_paragraph">
-        <a href="index.php?action=register_user">Register</a>
+        <a href="index.php?action=register_form">Register</a>
     </p>
 
 </main>

@@ -25,4 +25,14 @@ function get_user_by_email($email) {
     return $user_id; 
 }
 
+function add_user($note_text, $scriptures_id) {
+    global $db;
+    $query = 'INSERT INTO users (scripturesid, note)
+              VALUES (1, :scriptures_id, :note_text)';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':note_text', $note_text);
+    $statement->bindValue(':scriptures_id', $scriptures_id);
+    $statement->execute();
+    $statement->closeCursor();
+
 ?>
