@@ -52,6 +52,5 @@
             
             <input type="submit" value="Save Changes"><br>
         </form>
-        <p><a href="?action=list_notes">View Scripture List</a></p>
     </main>
 <?php include '../view/footer.php'; ?>

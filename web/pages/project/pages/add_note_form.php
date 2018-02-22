@@ -51,9 +51,6 @@
         <input type="submit" value="Add Note" />
         <br>
     </form>
-    <p class="last_paragraph">
-        <a href="index.php?action=list_notes">View Note List</a>
-    </p>
 
 </main>
 <?php include '../view/footer.php'; ?>
