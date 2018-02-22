@@ -92,3 +92,9 @@ form {
 .form input[text] {
     width: 15em;
 }
+.hide {
+	display:none;
+}
+.error {
+	color: red;
+}
