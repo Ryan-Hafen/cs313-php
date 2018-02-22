@@ -25,6 +25,7 @@ else if ($action == 'sign_in'){
 	
     if ($email == "" || $password == "") {
         $error = "All fields are required.";
+		$page = 'sign_in_form.php';
         include('../errors/error.php');
     } 
 	// else if ($email_in_use == false) { 
@@ -36,7 +37,6 @@ else if ($action == 'sign_in'){
         // include('../errors/error.php');
 	// } 
 	// else { 
-        // add_user($note_id);
 		// include('notes_list.php');
 	// } 
 
