@@ -1,6 +1,6 @@
 <?php include '../view/header.php'; ?>
 <main>
-    <h1>Sign in</h1>
+    <h1>Register</h1>
     
     <form action="." method="post" class="form">
         <input type="hidden" name="action" value="list_notes">
