@@ -25,19 +25,19 @@ function get_user_by_email($email) {
     return $user_id; 
 }
 
-function get_password($email) {
-    global $db;
-    $query = 'SELECT password 
-                FROM users
-               WHERE email = :email';     
-    $statement = $db->prepare($query);
-    $statement->bindValue(':email', $email);
-    $statement->execute();
-    $user = $statement->fetch();
-    $statement->closeCursor();
-    $user_password = $user['password'];
-    return $user_password;  
-}
+// function get_password($email) {
+    // global $db;
+    // $query = 'SELECT password 
+                // FROM users
+               // WHERE email = :email';     
+    // $statement = $db->prepare($query);
+    // $statement->bindValue(':email', $email);
+    // $statement->execute();
+    // $user = $statement->fetch();
+    // $statement->closeCursor();
+    // $user_password = $user['password'];
+    // return $user_password;  
+// }
 
 // function add_user($note_text, $scriptures_id) {
     // global $db;
