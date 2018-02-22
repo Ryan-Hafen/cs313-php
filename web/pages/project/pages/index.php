@@ -32,7 +32,7 @@ else if ($action == 'sign_in'){
         $error = "This email address has not been registered. ". $email;
         include('../errors/error.php');
 	} 
-	else if ($password == $password_match) { 
+	else if ($password == $password_check) { 
         $error = "Passwords do not match.";
         include('../errors/error.php');
 	} 
