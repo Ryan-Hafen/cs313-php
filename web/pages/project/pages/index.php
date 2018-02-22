@@ -39,9 +39,8 @@ else if ($action == 'sign_in'){
 	} 
 	else { 
 		$_SESSION["user_id"] = get_user_by_email($email);
-		echo $_SESSION["user_id"];
-		// $notes = get_notes($$_SESSION["user_id"]);
-		// include('notes_list.php');
+		$notes = get_notes($_SESSION["user_id"]);
+		include('notes_list.php');
 	} 
 
  } 
