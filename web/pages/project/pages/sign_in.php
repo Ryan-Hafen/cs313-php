@@ -10,7 +10,6 @@
         <input type="password" id="password" name="password" placeholder="Password" /> <span class="error<?php if (!$error) echo ' hide' ?>">*</span>
         <br>           
 
-        <label>&nbsp;</label>
         <input type="submit" value="Sign In" />
         <br>
     </form>
