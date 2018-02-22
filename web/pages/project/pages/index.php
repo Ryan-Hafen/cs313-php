@@ -83,15 +83,15 @@ else if ($action == 'edit_note_form') {
     } else {
 		$scriptures_id = get_scripture_id($book_id, $chapter_id, $verse_id);
 		
-		echo $book_id;
-		echo $chapter_id;
-		echo $verse_id;
-		echo $scriptures_id;
-		echo $note_text;
+		// echo $book_id;
+		// echo $chapter_id;
+		// echo $verse_id;
+		// echo $scriptures_id;
+		// echo $note_text;
 		
-        // add_note($note_text, $scriptures_id);
-        // header("Location: .?note_id=$note_id");
-        // include('notes_list.php');
+        add_note($note_text, $scriptures_id);
+        header("Location: .?note_id=$note_id");
+        include('notes_list.php');
     }
 }
 ?>
