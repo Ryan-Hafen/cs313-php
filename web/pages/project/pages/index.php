@@ -6,9 +6,6 @@ require '../model/users_db.php';
 
 $action = filter_input(INPUT_POST, 'action');
 
-session_start();
-$_SESSION["user_id"] = 0;
-
 if ($action == NULL) {
     $action = filter_input(INPUT_GET, 'action');
     if ($action == NULL) {
@@ -40,7 +37,7 @@ else if ($action == 'sign_in'){
         include('../errors/error.php');
 	} 
 	else { 
-		$_SESSION["user_id"] = get_user_by_email($email);
+		$user_id = get_user_by_email($email);
 		$notes = get_notes($_SESSION["user_id"]);
 		include('notes_list.php');
 	} 
@@ -73,11 +70,13 @@ else if ($action == 'sign_in'){
 	// } 
 // }
 else if ($action == 'list_notes') {
-	$notes = get_notes($_SESSION["user_id"]);
+    $user_id = filter_input(INPUT_POST, 'user_id', FILTER_VALIDATE_INT);
+	$notes = get_notes($user_id);
 	include('notes_list.php');
 }	
 else if ($action == 'edit_note_form') {
     $note_id = filter_input(INPUT_POST, 'note_id', FILTER_VALIDATE_INT);
+    $user_id = filter_input(INPUT_POST, 'user_id', FILTER_VALIDATE_INT);
     $book_id = filter_input(INPUT_POST, 'book_id', FILTER_VALIDATE_INT);
     $volume_id = filter_input(INPUT_POST, 'volume_id', FILTER_VALIDATE_INT);
     $chapter_id = filter_input(INPUT_POST, 'chapter', FILTER_VALIDATE_INT);

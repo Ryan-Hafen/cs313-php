@@ -4,6 +4,7 @@
         
         <form action="." method="post" class="form">
         <input type="hidden" name="action" value="edit_note">
+		<input type="hidden" name="user_id" value="<?php echo $note['userid']; ?>">
         
             <label>Volume:  </label>
             <select name="volume_id">
