@@ -1,6 +1,7 @@
 <?php
 
 function get_user($user_id) {
+    global $db;
     $query = 'SELECT * 
                 FROM users
                WHERE ID = :user_id';    
