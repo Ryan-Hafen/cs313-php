@@ -39,7 +39,7 @@ else if ($action == 'sign_in'){
 	else { 
 		$user_id = get_user_by_email($email);
 		
-		$_SESSION["user_id"] = $user_id;
+		// $_SESSION['user_id'] = $user_id;
 		
 		$notes = get_notes($user_id);
 		include('notes_list.php');
@@ -74,12 +74,11 @@ else if ($action == 'sign_in'){
 // }
 else if ($action == 'list_notes') {	
 	if($note_id != false) {
-		$user_id = $_SESSION["user_id"];
 		$notes = get_notes($user_id);
 		include('notes_list.php');
 	}
 }	
- else if ($action == 'edit_note_form') {
+else if ($action == 'edit_note_form') {
     $note_id = filter_input(INPUT_POST, 'note_id', FILTER_VALIDATE_INT);
     $book_id = filter_input(INPUT_POST, 'book_id', FILTER_VALIDATE_INT);
     $volume_id = filter_input(INPUT_POST, 'volume_id', FILTER_VALIDATE_INT);
@@ -95,16 +94,14 @@ else if ($action == 'list_notes') {
         
         include('edit_note_form.php');
     }
-} else if ($action == 'edit_note') {
-	
+} 
+else if ($action == 'edit_note') {
     $note_id = filter_input(INPUT_POST, 'note_id', FILTER_VALIDATE_INT);
     $book_id = filter_input(INPUT_POST, 'book_id', FILTER_VALIDATE_INT);
     $volume_id = filter_input(INPUT_POST, 'volume_id', FILTER_VALIDATE_INT);
     $chapter_id = filter_input(INPUT_POST, 'chapter_id', FILTER_VALIDATE_INT);
     $verse_id = filter_input(INPUT_POST, 'verse_id', FILTER_VALIDATE_INT);
     $note_text = filter_input(INPUT_POST, 'note_text');
-	
-	
     
     if ($note_id == false || $book_id == false || $chapter_id == false || $verse_id == false || $note_text == "") {
         $error = 'All fields are required. note_id = ' .$note_id;
@@ -116,7 +113,8 @@ else if ($action == 'list_notes') {
         header("Location: .?note_id=$note_id");
         include('notes_list.php');
     }
-} else if ($action == 'delete_note') {
+} 
+else if ($action == 'delete_note') {
     $note_id = filter_input(INPUT_POST, 'note_id', FILTER_VALIDATE_INT);
     if ($note_id == false) {
         $error = "Missing or incorrect product id or category id.";
@@ -126,7 +124,8 @@ else if ($action == 'list_notes') {
         header("Location: .?note_id=$note_id");
         include('notes_list.php');
     }
-} else if ($action == 'add_note_form') {
+} 
+else if ($action == 'add_note_form') {
     $volumes = get_volume_list();
     $books = get_book_list();
     $chapters = get_chapter_list();
