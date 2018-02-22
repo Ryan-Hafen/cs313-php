@@ -72,11 +72,9 @@ else if ($action == 'sign_in'){
 		// include('notes_list.php');
 	// } 
 // }
-else if ($action == 'list_notes') {	
-	if($note_id != false) {
-		$notes = get_notes($user_id);
-		include('notes_list.php');
-	}
+else if ($action == 'list_notes') {
+	// $notes = get_notes($user_id);
+	include('notes_list.php');
 }	
 else if ($action == 'edit_note_form') {
     $note_id = filter_input(INPUT_POST, 'note_id', FILTER_VALIDATE_INT);
