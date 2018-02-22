@@ -15,11 +15,11 @@ if ($action == NULL) {
 if ($action == 'sign_in'){
     include('sign_in.php');
 
-} 
-// else if ($action == 'register_user') {
-    // include('register_user.php');
+} else if ($action == 'register_user') {
+    include('register_user.php');
 
-// } else if ($action == 'list_notes') {
+} 
+// else if ($action == 'list_notes') {
     // $email = filter_input(INPUT_POST, 'email');
 	// $user_id = get_user_by_email($email);
 	
