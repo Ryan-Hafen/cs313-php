@@ -41,12 +41,14 @@ else if ($action == 'edit_note_form') {
     $verse_id = filter_input(INPUT_POST, 'verse_id', FILTER_VALIDATE_INT);
     $note_text = filter_input(INPUT_POST, 'note_text');
 	
-	$scriptures_id = get_scripture_id($book_id, $chapter_id, $verse_id);
+	
     
     if ($note_id == false || $book_id == false || $chapter_id == false || $verse_id == false || $note_text == "") {
         $error = 'All fields are required. note_id = ' .$note_id;
         include('../errors/error.php');
     } else {
+		$scriptures_id = get_scripture_id($book_id, $chapter_id, $verse_id);
+		
 		echo $note_id;
 		echo $scriptures_id;
 		echo $note_text;
