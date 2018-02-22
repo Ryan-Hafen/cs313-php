@@ -15,7 +15,8 @@ if ($action == NULL) {
 if ($action == 'sign_in_form'){
     include('sign_in_form.php');
 
-// } else if ($action == 'sign_in'){
+ } 
+// else if ($action == 'sign_in'){
     // $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_INT);
     // $password = filter_input(INPUT_POST, 'password', FILTER_VALIDATE_INT);
 	
