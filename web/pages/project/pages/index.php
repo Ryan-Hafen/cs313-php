@@ -5,6 +5,7 @@ require '../model/scriptures_db.php';
 require '../model/users_db.php';
 
 $action = filter_input(INPUT_POST, 'action');
+$user_id = 0;
 
 if ($action == NULL) {
     $action = filter_input(INPUT_GET, 'action');
