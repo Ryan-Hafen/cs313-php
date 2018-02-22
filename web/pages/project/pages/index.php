@@ -17,8 +17,8 @@ if ($action == 'sign_in_form'){
 
  } 
 else if ($action == 'sign_in'){
-    $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_INT);
-    $password = filter_input(INPUT_POST, 'password', FILTER_VALIDATE_INT);
+    $email = filter_input(INPUT_POST, 'email');
+    $password = filter_input(INPUT_POST, 'password');
 	
 	$email_in_use = get_user_by_email($email);
 	$password_check = get_password($email);
