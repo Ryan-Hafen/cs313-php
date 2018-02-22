@@ -89,6 +89,7 @@ else if ($action == 'edit_note_form') {
 } 
 else if ($action == 'edit_note') {
     $note_id = filter_input(INPUT_POST, 'note_id', FILTER_VALIDATE_INT);
+    $user_id = filter_input(INPUT_POST, 'user_id', FILTER_VALIDATE_INT);
     $book_id = filter_input(INPUT_POST, 'book_id', FILTER_VALIDATE_INT);
     $volume_id = filter_input(INPUT_POST, 'volume_id', FILTER_VALIDATE_INT);
     $chapter_id = filter_input(INPUT_POST, 'chapter_id', FILTER_VALIDATE_INT);
