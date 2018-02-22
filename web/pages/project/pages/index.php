@@ -48,16 +48,16 @@ else if ($action == 'edit_note_form') {
         include('../errors/error.php');
     } else {
 		$scriptures_id = get_scripture_id($book_id, $chapter_id, $verse_id);
-		echo $book_id;
-		echo $chapter_id;
-		echo $verse_id;
+		// echo $book_id;
+		// echo $chapter_id;
+		// echo $verse_id;
 		
-		echo $note_id;
-		echo $scriptures_id;
-		echo $note_text;
-        // edit_note($note_id, $scriptures_id, $note_text);
-        //header("Location: .?note_id=$note_id");
-        //include('notes_list.php');
+		// echo $note_id;
+		// echo $scriptures_id;
+		// echo $note_text;
+        edit_note($note_id, $scriptures_id, $note_text);
+        header("Location: .?note_id=$note_id");
+        include('notes_list.php');
     }
 } else if ($action == 'delete_note') {
     $note_id = filter_input(INPUT_POST, 'note_id', FILTER_VALIDATE_INT);
