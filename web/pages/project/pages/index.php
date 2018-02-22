@@ -26,16 +26,19 @@ else if ($action == 'sign_in'){
     if ($email == "" || $password == "") {
         $error = "All fields are required.";
         include('../errors/error.php');
-    } else if ($email_in_use == false) { 
-        $error = "This email address has not been registered. ". $email;
-        include('../errors/error.php');
-	} else if ($password == $password_match) { 
-        $error = "Passwords do not match.";
-        include('../errors/error.php');
-	} else { 
-        add_user($note_id);
-		include('notes_list.php');
-	} 
+    } 
+	// else if ($email_in_use == false) { 
+        // $error = "This email address has not been registered. ". $email;
+        // include('../errors/error.php');
+	// } 
+	// else if ($password == $password_match) { 
+        // $error = "Passwords do not match.";
+        // include('../errors/error.php');
+	// } 
+	// else { 
+        // add_user($note_id);
+		// include('notes_list.php');
+	// } 
 
  } 
 // else if ($action == 'register_form') {
