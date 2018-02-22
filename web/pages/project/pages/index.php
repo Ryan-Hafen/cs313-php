@@ -37,9 +37,7 @@ else if ($action == 'sign_in'){
         include('../errors/error.php');
 	} 
 	else { 
-		$user_id = get_user_by_email($email);
-		
-		// $_SESSION['user_id'] = $user_id;
+		$GLOBALS['user_id'] = get_user_by_email($email);
 		
 		$notes = get_notes($user_id);
 		include('notes_list.php');
@@ -73,7 +71,7 @@ else if ($action == 'sign_in'){
 	// } 
 // }
 else if ($action == 'list_notes') {
-	// $notes = get_notes($user_id);
+	$notes = get_notes($user_id);
 	include('notes_list.php');
 }	
 else if ($action == 'edit_note_form') {
