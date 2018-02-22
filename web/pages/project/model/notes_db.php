@@ -1,5 +1,5 @@
 <?php
-function get_notes() {
+function get_notes($user_id) {
     global $db;
     $query ='SELECT n.id
 			      , n.userid

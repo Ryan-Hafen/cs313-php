@@ -37,7 +37,7 @@ else if ($action == 'sign_in'){
         include('../errors/error.php');
 	} 
 	else { 
-		$notes = get_notes();
+		$notes = get_notes($user_id);
 		include('notes_list.php');
 	} 
 
