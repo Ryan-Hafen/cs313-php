@@ -1,15 +1,15 @@
 <?php
 
-// function get_user_data($user_id) {
-    // global $db;
-    // $query = 'SELECT * 
-                // FROM users
-               // WHERE id = :user_id';    
-    // $statement = $db->prepare($query);
-    // $statement->bindValue(':user_id', $user_id);
-    // $statement->execute();
-    // return $statement;    
-// }
+function get_user_data($user_id) {
+    global $db;
+    $query = 'SELECT * 
+                FROM users
+               WHERE id = :user_id';    
+    $statement = $db->prepare($query);
+    $statement->bindValue(':user_id', $user_id);
+    $statement->execute();
+    return $statement;    
+}
 
 // function get_user_by_email($email) {
     // global $db;
