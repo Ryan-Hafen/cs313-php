@@ -5,7 +5,7 @@ require '../model/scriptures_db.php';
 require '../model/users_db.php';
 
 $action = filter_input(INPUT_POST, 'action');
-$user_id = 0;
+$_SESSION["user_id"] = 0;
 
 if ($action == NULL) {
     $action = filter_input(INPUT_GET, 'action');
@@ -38,9 +38,9 @@ else if ($action == 'sign_in'){
         include('../errors/error.php');
 	} 
 	else { 
-		$GLOBALS['user_id'] = get_user_by_email($email);
+		$_SESSION["user_id"] = get_user_by_email($email);
 		
-		$notes = get_notes($user_id);
+		$notes = get_notes($$_SESSION["user_id"]);
 		include('notes_list.php');
 	} 
 
@@ -72,7 +72,7 @@ else if ($action == 'sign_in'){
 	// } 
 // }
 else if ($action == 'list_notes') {
-	$notes = get_notes($GLOBALS['user_id']);
+	$notes = get_notes($_SESSION["user_id"]);
 	include('notes_list.php');
 }	
 else if ($action == 'edit_note_form') {
@@ -107,8 +107,10 @@ else if ($action == 'edit_note') {
 		$scriptures_id = get_scripture_id($book_id, $chapter_id, $verse_id);
 		
         edit_note($note_id, $scriptures_id, $note_text);
+		
+		$notes = get_notes($_SESSION["user_id"]);
         header("Location: .?note_id=$note_id");
-        include('notes_list.php');
+		include('notes_list.php');
     }
 } 
 else if ($action == 'delete_note') {
