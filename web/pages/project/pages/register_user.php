@@ -6,7 +6,7 @@
         <input type="hidden" name="action" value="list_notes">
 
         <label>Email:</label>
-        <input type="text" id="email" name="email" placeholder="Email" value="<?php echo $username; ?>" /> 
+        <input type="text" id="email" name="email" placeholder="Email" value="" /> 
         <br>
         <label>Password:</label>
         <input type="password" id="password" name="password" placeholder="password" /> <span class="error<?php if (!$error) echo ' hide' ?>">*</span>
