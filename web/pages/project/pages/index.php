@@ -71,7 +71,7 @@ else if ($action == 'sign_in'){
 	// } 
 // }
 else if ($action == 'list_notes') {
-	$notes = get_notes($user_id);
+	$notes = get_notes($GLOBALS['user_id']);
 	include('notes_list.php');
 }	
 else if ($action == 'edit_note_form') {
