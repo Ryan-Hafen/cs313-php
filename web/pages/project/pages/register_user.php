@@ -5,14 +5,11 @@
     <form action="." method="post" class="form">
         <input type="hidden" name="action" value="list_notes">
 
-        <label>Email:</label>
         <input type="text" id="email" name="email" placeholder="Email" value="" /> 
         <br>
-        <label>Password:</label>
-        <input type="password" id="password" name="password" placeholder="password" /> <span class="error<?php if (!$error) echo ' hide' ?>">*</span>
-        <br>     
-        <label>Re-enter Password:</label>
-        <input type="password" id="password_match" name="password" placeholder="password" /> <span class="error<?php if (!$error) echo ' hide' ?>">*</span>
+        <input type="password" id="password" name="password" placeholder="Password" /> <span class="error<?php if (!$error) echo ' hide' ?>">*</span>
+        <br>
+        <input type="password" id="password_match" name="password" placeholder="Re-enter Password" /> <span class="error<?php if (!$error) echo ' hide' ?>">*</span>
         <br>         
 
         <label>&nbsp;</label>
