@@ -86,7 +86,7 @@ else if ($action == 'edit_note_form') {
 		echo $book_id;
 		echo $chapter_id;
 		echo $verse_id;
-		echo scriptures_id;
+		echo $scriptures_id;
 		echo $note_text;
 		
         // add_note($note_text, $scriptures_id);
