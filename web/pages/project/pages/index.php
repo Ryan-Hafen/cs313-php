@@ -36,9 +36,10 @@ else if ($action == 'sign_in'){
         $error = "Passwords do not match.";
         include('../errors/error.php');
 	} 
-	// else { 
-		// include('notes_list.php');
-	// } 
+	else { 
+		$notes = get_notes();
+		include('notes_list.php');
+	} 
 
  } 
 // else if ($action == 'register_form') {

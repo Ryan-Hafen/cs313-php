@@ -16,8 +16,10 @@ function get_notes() {
 			   JOIN users AS u ON n.userid = u.id
 			   JOIN scriptures AS s on n.scripturesid = s.id
 			   JOIN volumes AS v on s.volumeid = v.id
-			   JOIN books AS b on s.bookid = b.id';
+			   JOIN books AS b on s.bookid = b.id
+               WHERE n.userid = :user_id';  
     $statement = $db->prepare($query);
+    $statement->bindValue(':user_id', $user_id);
     $statement->execute();
     return $statement;
 }
