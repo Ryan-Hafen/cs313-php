@@ -47,7 +47,10 @@ else if ($action == 'edit_note_form') {
         $error = 'All fields are required. note_id = ' .$note_id;
         include('../errors/error.php');
     } else {
-        edit_note($note_id, $scriptures_id, $note_text);
+		echo $note_id;
+		echo $scriptures_id;
+		echo $note_text;
+        // edit_note($note_id, $scriptures_id, $note_text);
         header("Location: .?note_id=$note_id");
         include('notes_list.php');
     }

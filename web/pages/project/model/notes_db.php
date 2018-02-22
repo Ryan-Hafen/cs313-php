@@ -130,19 +130,16 @@ function add_note($note_text, $scriptures_id) {
 }
 
 function edit_note($note_id, $scriptures_id, $note_text) {
-	echo $scriptures_id;
-	echo $note_id;
-	echo $note_text
-    // global $db;
-    // $query = 'Update notes
-                 // Set note = :note_text
-                   // , scripturesid = :scriptures_id
-               // WHERE id = :note_id';
-    // $statement = $db->prepare($query);
-    // $statement->bindValue(':note_id', $note_id);
-    // $statement->bindValue(':scriptures_id', $scriptures_id);
-    // $statement->bindValue(':note_text', $note_text);
-    // $statement->execute();
-    // $statement->closeCursor();
+    global $db;
+    $query = 'Update notes
+                 Set note = :note_text
+                   , scripturesid = :scriptures_id
+               WHERE id = :note_id';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':note_id', $note_id);
+    $statement->bindValue(':scriptures_id', $scriptures_id);
+    $statement->bindValue(':note_text', $note_text);
+    $statement->execute();
+    $statement->closeCursor();
 }
 ?>
