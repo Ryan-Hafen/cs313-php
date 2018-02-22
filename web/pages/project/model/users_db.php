@@ -1,6 +1,6 @@
 <?php
 
-function get_user_by_id($user_id) {
+function get_user_data($user_id) {
     global $db;
     $query = 'SELECT * 
                 FROM users
