@@ -48,13 +48,7 @@ else if ($action == 'edit_note_form') {
         include('../errors/error.php');
     } else {
 		$scriptures_id = get_scripture_id($book_id, $chapter_id, $verse_id);
-		// echo $book_id;
-		// echo $chapter_id;
-		// echo $verse_id;
 		
-		// echo $note_id;
-		// echo $scriptures_id;
-		// echo $note_text;
         edit_note($note_id, $scriptures_id, $note_text);
         header("Location: .?note_id=$note_id");
         include('notes_list.php');
@@ -81,15 +75,23 @@ else if ($action == 'edit_note_form') {
     $chapter_id = filter_input(INPUT_POST, 'chapter_id', FILTER_VALIDATE_INT);
     $verse_id = filter_input(INPUT_POST, 'verse_id', FILTER_VALIDATE_INT);
 	
-	$scriptures_id = get_scripture_id($book_id, $chapter_id, $verse_id);
+	
 		
     if ($book_id == false) {
         $error = "Invalid product data. Check all fields and try again.";
         include('../errors/error.php');
     } else {
-        add_note($note_text, $scriptures_id);
-        header("Location: .?note_id=$note_id");
-        include('notes_list.php');
+		$scriptures_id = get_scripture_id($book_id, $chapter_id, $verse_id);
+		
+		echo $book_id;
+		echo $chapter_id;
+		echo $verse_id;
+		echo scriptures_id;
+		echo $note_text;
+		
+        // add_note($note_text, $scriptures_id);
+        // header("Location: .?note_id=$note_id");
+        // include('notes_list.php');
     }
 }
 ?>
