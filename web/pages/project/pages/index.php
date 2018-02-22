@@ -38,7 +38,7 @@ else if ($action == 'sign_in'){
 	} 
 	else { 
 		$user_id = get_user_by_email($email);
-		$notes = get_notes($_SESSION["user_id"]);
+		$notes = get_notes($user_id );
 		include('notes_list.php');
 	} 
 
@@ -108,7 +108,7 @@ else if ($action == 'edit_note') {
 		
         edit_note($note_id, $scriptures_id, $note_text);
 		
-		$notes = get_notes($_SESSION["user_id"]);
+		$notes = get_notes($user_id );
         header("Location: .?note_id=$note_id");
 		include('notes_list.php');
     }
