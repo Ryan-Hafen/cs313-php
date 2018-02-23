@@ -3,11 +3,13 @@
 
     
     <section>
+        <br>
 		<form action="." method="post">
             <input type="hidden" name="action" value="add_note_form">
 			<input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
             <input type="submit" value="Add Note">
-                </form>		
+        </form>	
+        <br>	
         <table>
             <tr>
                 <th>Volume</th>
@@ -55,6 +57,7 @@
             </tr>
             <?php endforeach; ?>
         </table> 
+        <br>
     </section>
 </main>
 <?php include '../view/footer.php'; ?>
