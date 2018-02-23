@@ -120,11 +120,12 @@ function delete_note($note_id) {
     $statement->closeCursor();
 }
 
-function add_note($note_text, $scriptures_id) {
+function add_note($user_id, $scriptures_id, $note_text) {
     global $db;
     $query = 'INSERT INTO notes (userid, scripturesid, note)
-              VALUES (1, :scriptures_id, :note_text)';
+              VALUES (:user_id, :scriptures_id, :note_text)';
     $statement = $db->prepare($query);
+    $statement->bindValue(':user_id', $user_id);
     $statement->bindValue(':note_text', $note_text);
     $statement->bindValue(':scriptures_id', $scriptures_id);
     $statement->execute();
