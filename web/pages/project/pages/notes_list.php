@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="en-us">
-
-<head>
-	<title>Notes List | Scripture Journal</title>
-    <?php include $_SERVER['DOCUMENT_ROOT'].'/modules/head.php';?>
-</head>
-
-<body>
-<!-- Header -->
-	<?php include $_SERVER['DOCUMENT_ROOT'].'/modules/header.php';?>
-	
+<?php include '../view/header.php'; ?>
 <main>
 
     
@@ -64,11 +53,4 @@
         </table> 
     </section>
 </main>
-
-
-<!-- Footer -->
-    <?php include $_SERVER['DOCUMENT_ROOT'].'/modules/footer.php';?>
-
-</body>
-
-</html>
+<?php include '../view/footer.php'; ?>
