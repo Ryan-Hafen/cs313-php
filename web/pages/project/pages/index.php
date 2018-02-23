@@ -142,8 +142,10 @@ else if ($action == 'add_note') {
         include('../errors/error.php');
     } else {
 		$scriptures_id = get_scripture_id($book_id, $chapter_id, $verse_id);
+		
 		$note_id = get_max_note_id();
-		$note_id = $note_id + 1;
+		$note_id += 1;
+		
         add_note($note_id, $user_id, $scriptures_id, $note_text);
 		
 		$notes = get_notes($user_id);
