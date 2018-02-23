@@ -115,8 +115,9 @@ else if ($action == 'delete_note') {
         include('../errors/error.php');
     } else { 
         delete_note($note_id);
-        header("Location: .?note_id=$note_id");
-        include('notes_list.php');
+		
+		$notes = get_notes($user_id);
+		include('notes_list.php');
     }
 } 
 else if ($action == 'add_note_form') {
@@ -141,8 +142,9 @@ else if ($action == 'add_note') {
         include('../errors/error.php');
     } else {
 		$scriptures_id = get_scripture_id($book_id, $chapter_id, $verse_id);
-		
-        // add_note($user_id, $scriptures_id, $note_text);
+		$note_id = get_max_note_id();
+		$note_id = $note_id + 1;
+        add_note($note_id, $user_id, $scriptures_id, $note_text);
 		
 		$notes = get_notes($user_id);
 		include('notes_list.php');

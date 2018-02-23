@@ -61,11 +61,12 @@ function delete_note($note_id) {
     $statement->closeCursor();
 }
 
-function add_note($user_id, $scriptures_id, $note_text) {
+function add_note($note_id, $user_id, $scriptures_id, $note_text) {
     global $db;
-    $query = 'INSERT INTO notes (userid, scripturesid, note)
-              VALUES (:user_id, :scriptures_id, :note_text)';
+    $query = 'INSERT INTO notes (id, userid, scripturesid, note)
+              VALUES (:note_id, :user_id, :scriptures_id, :note_text);';
     $statement = $db->prepare($query);
+    $statement->bindValue(':note_id', $note_id);
     $statement->bindValue(':user_id', $user_id);
     $statement->bindValue(':note_text', $note_text);
     $statement->bindValue(':scriptures_id', $scriptures_id);
@@ -85,5 +86,17 @@ function edit_note($note_id, $scriptures_id, $note_text) {
     $statement->bindValue(':note_text', $note_text);
     $statement->execute();
     $statement->closeCursor();
+}
+
+function get_max_note_id() {
+    global $db;
+    $query = 'SELECT max(id) AS id
+			   FROM notes;'
+    $statement = $db->prepare($query);
+    $statement->execute();
+    $note = $statement->fetch();
+    $statement->closeCursor();
+    $note_id = $note['id'];
+    return $note_id; 
 }
 ?>
