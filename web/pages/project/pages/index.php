@@ -144,7 +144,6 @@ else if ($action == 'add_note') {
 		$scriptures_id = get_scripture_id($book_id, $chapter_id, $verse_id);
 		
 		$note_id = get_max_note_id();
-		$note_id += 1;
 		
         add_note($note_id, $user_id, $scriptures_id, $note_text);
 		

@@ -90,8 +90,8 @@ function edit_note($note_id, $scriptures_id, $note_text) {
 
 function get_max_note_id() {
     global $db;
-    $query = 'SELECT MAX(id) AS id
-			   FROM notes;'
+    $query = 'SELECT MAX(id) + 1 AS id
+			   FROM notes';
     $statement = $db->prepare($query);
     $statement->execute();
     $note = $statement->fetch();
