@@ -110,6 +110,7 @@ else if ($action == 'edit_note') {
 } 
 else if ($action == 'delete_note') {
     $note_id = filter_input(INPUT_POST, 'note_id', FILTER_VALIDATE_INT);
+    $user_id = filter_input(INPUT_POST, 'user_id', FILTER_VALIDATE_INT);
     if ($note_id == false) {
         $error = "Missing or incorrect product id or category id.";
         include('../errors/error.php');

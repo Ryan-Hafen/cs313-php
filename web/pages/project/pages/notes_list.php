@@ -50,6 +50,8 @@
                 <td><form action="." method="post">
                     <input type="hidden" name="action"
                            value="delete_note">
+					<input type="hidden" name="user_id" 
+							value="<?php echo $note['userid']; ?>">
                     <input type="hidden" name="note_id"
                            value="<?php echo $note['id']; ?>">
                     <input type="submit" value="Delete">
