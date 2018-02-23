@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>My Scripture Journal</title>
-    <link rel="stylesheet" type="text/css" href="../view/style.css">
+    <link rel="stylesheet" type="text/css" href="../view/main.css">
 </head>
 
 <!-- the body section -->
