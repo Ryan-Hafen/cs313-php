@@ -142,17 +142,10 @@ else if ($action == 'add_note') {
     } else {
 		$scriptures_id = get_scripture_id($book_id, $chapter_id, $verse_id);
 		
-		echo $user_id.", ";
-		echo $book_id.", ";
-		echo $chapter_id.", ";
-		echo $verse_id.", ";
-		echo $scriptures_id.", ";
-		echo $note_text;
+        add_note($user_id, $scriptures_id, $note_text);
 		
-        // // add_note($user_id, $scriptures_id, $note_text);
-		
-		// // $notes = get_notes($user_id);
-		// // include('notes_list.php');
+		$notes = get_notes($user_id);
+		include('notes_list.php');
     }
 }
 ?>
