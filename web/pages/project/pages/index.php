@@ -129,12 +129,12 @@ else if ($action == 'add_note_form') {
 	
     include('add_note_form.php');
 } 
-// else if ($action == 'add_note') {
-    // $user_id = filter_input(INPUT_POST, 'user_id', FILTER_VALIDATE_INT);
-    // $note_text = filter_input(INPUT_POST, 'note_text');
-    // $book_id = filter_input(INPUT_POST, 'book_id', FILTER_VALIDATE_INT);
-    // $chapter_id = filter_input(INPUT_POST, 'chapter_id', FILTER_VALIDATE_INT);
-    // $verse_id = filter_input(INPUT_POST, 'verse_id', FILTER_VALIDATE_INT);
+else if ($action == 'add_note') {
+    $user_id = filter_input(INPUT_POST, 'user_id', FILTER_VALIDATE_INT);
+    $book_id = filter_input(INPUT_POST, 'book_id', FILTER_VALIDATE_INT);
+    $chapter_id = filter_input(INPUT_POST, 'chapter_id', FILTER_VALIDATE_INT);
+    $verse_id = filter_input(INPUT_POST, 'verse_id', FILTER_VALIDATE_INT);
+    $note_text = filter_input(INPUT_POST, 'note_text');
 	
     // if (book_id == false || $chapter_id == false || $verse_id == false || $note_text == "") {
         // $error = "All fields are required.";
@@ -154,7 +154,7 @@ else if ($action == 'add_note_form') {
 		// // $notes = get_notes($user_id);
 		// // include('notes_list.php');
     // }
-// }
+}
 ?>
 
 
