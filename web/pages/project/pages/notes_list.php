@@ -3,7 +3,11 @@
 
     
     <section>
-        <p><a href="?action=add_note_form">Add Note</a></p>     
+		<form action="." method="post">
+            <input type="hidden" name="action" value="add_note_form">
+			<input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
+            <input type="submit" value="Add Note">
+                </form>		
         <table>
             <tr>
                 <th>Volume</th>
