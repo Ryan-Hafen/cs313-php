@@ -1,4 +1,15 @@
-<?php include '../view/header.php'; ?>
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<title>Add Note | Scripture Journal</title>
+    <?php include $_SERVER['DOCUMENT_ROOT'].'/modules/head.php';?>
+</head>
+
+<body>
+<!-- Header -->
+	<?php include $_SERVER['DOCUMENT_ROOT'].'/modules/header.php';?>
+	
 <main>
     <h1>Add Note</h1>
     
@@ -53,4 +64,11 @@
     </form>
 
 </main>
-<?php include '../view/footer.php'; ?>
+
+
+<!-- Footer -->
+    <?php include $_SERVER['DOCUMENT_ROOT'].'/modules/footer.php';?>
+
+</body>
+
+</html>

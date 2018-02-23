@@ -1,4 +1,15 @@
-<?php include '../view/header.php'; ?>
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<title>Edit Note | Scripture Journal</title>
+    <?php include $_SERVER['DOCUMENT_ROOT'].'/modules/head.php';?>
+</head>
+
+<body>
+<!-- Header -->
+	<?php include $_SERVER['DOCUMENT_ROOT'].'/modules/header.php';?>
+	
 <main>
         <h1>Edit Note</h1>
         
@@ -53,4 +64,11 @@
             <input type="submit" value="Save Changes"><br>
         </form>
     </main>
-<?php include '../view/footer.php'; ?>
+
+
+<!-- Footer -->
+    <?php include $_SERVER['DOCUMENT_ROOT'].'/modules/footer.php';?>
+
+</body>
+
+</html>
