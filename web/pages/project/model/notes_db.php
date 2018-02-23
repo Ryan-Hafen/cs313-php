@@ -88,15 +88,15 @@ function edit_note($note_id, $scriptures_id, $note_text) {
     $statement->closeCursor();
 }
 
-// function get_max_note_id() {
-    // global $db;
-    // $query = 'SELECT max(id) AS id
-			   // FROM notes;'
-    // $statement = $db->prepare($query);
-    // $statement->execute();
-    // $note = $statement->fetch();
-    // $statement->closeCursor();
-    // $note_id = $note['id'];
-    // return $note_id; 
-// }
+function get_max_note_id() {
+    global $db;
+    $query = 'SELECT MAX(id) AS id
+			   FROM notes;'
+    $statement = $db->prepare($query);
+    $statement->execute();
+    $note = $statement->fetch();
+    $statement->closeCursor();
+    $note_id = $note['id'];
+    return $note_id; 
+}
 ?>
