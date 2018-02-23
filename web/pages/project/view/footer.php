@@ -1,6 +1,6 @@
 <footer>
     <p class="copyright">
-        &copy; <?php echo date("Y"); ?> RH Design, Inc.
+        &copy; <?php echo date("Y"); ?> Rucy Design, Inc.
     </p>
 </footer>
 </body>
