@@ -68,10 +68,7 @@ else if ($action == 'register_user') {
 	} else { 
 	    $full_name = $first_name . " " . $last_name;
 		
-		echo $full_name;
-		echo $email_in_use;
-		
-        // add_user($email, $first_name, $last_name, $full_name);
+        add_user($email, $first_name, $last_name, $full_name);
 		
 		// $notes = get_notes($user_id);
 		// include('notes_list.php');
