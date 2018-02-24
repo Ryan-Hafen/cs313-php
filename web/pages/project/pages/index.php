@@ -25,24 +25,21 @@ else if ($action == 'sign_in'){
 	$email_in_use = get_user_by_email($email);
 	$password_check = get_password($email);
 	
-	echo $email_in_use;
-	echo $password_check;
-	
-    // if ($email == "" || $password == "") {
-        // $error = "All fields are required.";
-        // include('../errors/error.php');
-		// include('sign_in_form.php');
-    // } 
+    if ($email == "" || $password == "") {
+        $error = "All fields are required.";
+        include('../errors/error.php');
+		include('sign_in_form.php');
+    } 
 	// else if ($email_in_use == false) { 
         // $error = "This email address has not been registered. ". $email;
         // include('../errors/error.php');
 		// include('sign_in_form.php');
 	// }
-	// else {
-		// $_SESSION["user"] = get_user_data($email);
-		// $notes = get_notes($_SESSION["user"][user_id]);
-		// include('notes_list.php');
-	// } 
+	else {
+		$_SESSION["user"] = get_user_data($email);
+		$notes = get_notes($_SESSION["user"][user_id]);
+		include('notes_list.php');
+	} 
 
  } 
 else if ($action == 'register_form') {
