@@ -4,7 +4,7 @@ function get_user_data($email) {
     global $db;
     $query = 'SELECT * 
                 FROM users
-               WHERE id = :user_id';    
+               WHERE email = :email';    
     $statement = $db->prepare($query);
     $statement->bindValue(':email', $email);
     $statement->execute();
