@@ -1,6 +1,6 @@
 <?php include '../view/header.php'; ?>
-<div class="container center">
-	<div class="row row-padding">
+<div class="container">
+	<div class="row row-padding center">
 		<div class="half card-4 margin padding-16">
 			<h2 class="text-theme">Sign in</h2>
 		
