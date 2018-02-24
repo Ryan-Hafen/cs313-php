@@ -39,7 +39,7 @@ function get_password($email) {
     return $user_password;  
 }
 
-function get_max_note_id() {
+function get_max_user_id() {
     global $db;
     $query = 'SELECT MAX(id) + 1 AS id
 			   FROM users';
@@ -51,11 +51,12 @@ function get_max_note_id() {
     return $user_id; 
 }
 
-function add_user($email, $first_name, $last_name, $full_name) {
+function add_user($user_id, $email, $first_name, $last_name, $full_name) {
     global $db;
-    $query = 'INSERT INTO users (email, firstname, lastname, fullname)
-              VALUES (:email, :first_name, :last_name, :full_name);';
+    $query = 'INSERT INTO users (id, email, firstname, lastname, fullname)
+              VALUES (:user_id, :email, :first_name, :last_name, :full_name);';
     $statement = $db->prepare($query);
+    $statement->bindValue(':user_id', $user_id);
     $statement->bindValue(':email', $email);
     $statement->bindValue(':first_name', $first_name);
     $statement->bindValue(':last_name', $last_name);

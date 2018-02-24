@@ -67,8 +67,9 @@ else if ($action == 'register_user') {
         include('../errors/error.php');
 	} else { 
 	    $full_name = $first_name . " " . $last_name;
+		$user_id = get_max_user_id();
 		
-        add_user($email, $first_name, $last_name, $full_name);
+        add_user($user_id, $email, $first_name, $last_name, $full_name);
 		
 		// $notes = get_notes($user_id);
 		// include('notes_list.php');
