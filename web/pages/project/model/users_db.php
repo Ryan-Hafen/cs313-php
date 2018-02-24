@@ -39,6 +39,18 @@ function get_password($email) {
     return $user_password;  
 }
 
+function get_max_note_id() {
+    global $db;
+    $query = 'SELECT MAX(id) + 1 AS id
+			   FROM users';
+    $statement = $db->prepare($query);
+    $statement->execute();
+    $user = $statement->fetch();
+    $statement->closeCursor();
+    $user_id = $user['id'];
+    return $user_id; 
+}
+
 function add_user($email, $first_name, $last_name, $full_name) {
     global $db;
     $query = 'INSERT INTO users (email, firstname, lastname, fullname)
