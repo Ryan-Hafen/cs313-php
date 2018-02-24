@@ -1,8 +1,7 @@
 <?php include '../view/header.php'; ?>
 
-<main>
-<div class="threequarter">
-	<div class="container card-4 center">
+<div class="half center ">
+	<div class="container card-4">
 		<h2>Sign in</h2>
     
 		<form action="." method="post" class="form">
@@ -22,8 +21,6 @@
 	<div class="responsive padding-16">
 		<a href="index.php?action=register_form" class="button">Register</a>
 	</div>
-</div>	
-
-</main>
+</div>
 
 <?php include '../view/footer.php'; ?>
