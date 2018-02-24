@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../images/logo.png" rel="icon" type="image/png" sizes="16x16">
     <link href="../css/style.css" rel="stylesheet" type="text/css" media="screen">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.4/css/fontawesome.css">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <title>My Scripture Journal</title>
 </head>
 
