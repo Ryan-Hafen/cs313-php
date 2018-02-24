@@ -4,11 +4,7 @@
     
     <section>
         <br>
-		<form action="." method="post">
-            <input type="hidden" name="action" value="add_note_form">
-			<input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
-            <input type="submit" value="Add Note">
-        </form>	
+			<a href="index.php?action=add_note">Add Note</a>
         <br>	
         <table>
             <tr>
@@ -33,8 +29,6 @@
                 <td><form action="." method="post">
                     <input type="hidden" name="action"
                            value="edit_note_form">
-					<input type="hidden" name="user_id" 
-							value="<?php echo $note['userid']; ?>">
                     <input type="hidden" name="note_id"
                            value="<?php echo $note['id']; ?>">
                     <input type="hidden" name="book_id"
@@ -50,8 +44,6 @@
                 <td><form action="." method="post">
                     <input type="hidden" name="action"
                            value="delete_note">
-					<input type="hidden" name="user_id" 
-							value="<?php echo $note['userid']; ?>">
                     <input type="hidden" name="note_id"
                            value="<?php echo $note['id']; ?>">
                     <input type="submit" value="Delete">

@@ -44,10 +44,7 @@
         
         <label>Note:</label>
         <textarea name="note_text" id="note_text" rows="4" cols="50"></textarea>
-        <br>
-		
-		<input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
-            
+        <br>            
 
         <label>&nbsp;</label>
         <input type="submit" value="Add Note" />
