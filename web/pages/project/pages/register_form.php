@@ -16,11 +16,11 @@
         <input type="password" id="password_match" name="password_match" placeholder="Re-enter Password" /> <span class="error<?php if (!$error) echo ' hide' ?>">*</span>
         <br>         
 
-        <input type="submit" value="Sign In" />
+        <input type="submit" value="Register" />
         <br>
     </form>
     <p class="last_paragraph">
-        <a href="index.php?action=sign_in">Register</a>
+        <a href="index.php?action=sign_in">Sign In</a>
     </p>
 
 </main>

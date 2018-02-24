@@ -56,13 +56,6 @@ else if ($action == 'register_user') {
 	
 	$email_in_use = get_user_by_email($email);
 	
-	// echo $first_name;
-	// echo $last_name;
-	// echo $email;
-	// echo $password;
-	// echo $password_match;
-	// echo $email_in_use;
-	
     if ($first_name == "" || $last_name == "" || $email == "" || $password == "" || $password_match == "") {
         $error = "All fields are required.";
         include('../errors/error.php');
@@ -75,10 +68,13 @@ else if ($action == 'register_user') {
 	} else { 
 	    $full_name = $first_name . " " . $last_name;
 		
-        add_user($email, $first_name, $last_name, $full_name);
+		echo $full_name;
+		echo $email_in_use;
 		
-		$notes = get_notes($user_id);
-		include('notes_list.php');
+        // add_user($email, $first_name, $last_name, $full_name);
+		
+		// $notes = get_notes($user_id);
+		// include('notes_list.php');
 	} 
 }
 else if ($action == 'edit_note_form') {
