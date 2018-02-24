@@ -2,9 +2,11 @@
 
 <!-- Main -->
 <div class="center">
-	<a href="index.php?action=add_note" class="button circle large theme">
-		<i class="fas fa-plus"></i>
-	</a>
+	<div class="responsive">
+		<a href="index.php?action=add_note" class="left-align button circle large theme">
+			<i class="fas fa-plus"></i>
+		</a>
+	</div>
 	<div class="responsive card-4">
 		<table class="table striped bordered">
 			<thead>
