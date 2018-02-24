@@ -20,7 +20,7 @@
         <br>
     </form>
     <p class="last_paragraph">
-        <a href="index.php?action=sign_in">Sign In</a>
+        <a href="index.php?action=sign_in">Register</a>
     </p>
 
 </main>
