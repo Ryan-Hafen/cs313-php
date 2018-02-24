@@ -48,20 +48,20 @@ else if ($action == 'register_form') {
 
 } 
 else if ($action == 'register_user') {
-    $first_name = filter_input(INPUT_POST, 'first_name');
-    $last_name = filter_input(INPUT_POST, 'last_name');
-    $email = filter_input(INPUT_POST, 'email');
-    $password = filter_input(INPUT_POST, 'password',);
-    $password_match = filter_input(INPUT_POST, 'password_match');
+    // $first_name = filter_input(INPUT_POST, 'first_name');
+    // $last_name = filter_input(INPUT_POST, 'last_name');
+    // $email = filter_input(INPUT_POST, 'email');
+    // $password = filter_input(INPUT_POST, 'password',);
+    // $password_match = filter_input(INPUT_POST, 'password_match');
 	
-	$email_in_use = get_user_by_email($email);
+	// $email_in_use = get_user_by_email($email);
 	
-	echo $first_name;
-	echo $last_name;
-	echo $email;
-	echo $password;
-	echo $password_match;
-	echo $email_in_use;
+	// echo $first_name;
+	// echo $last_name;
+	// echo $email;
+	// echo $password;
+	// echo $password_match;
+	// echo $email_in_use;
 	
     // if ($first_name == "" || $last_name == "" || $email == "" || $password == "" || $password_match == "") {
         // $error = "All fields are required.";
