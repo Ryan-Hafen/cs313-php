@@ -3,7 +3,7 @@
 <!-- Main -->
 <div class="responsive card-4">
 <a href="index.php?action=add_note" class="button circle large theme">
-	<i class="fa fa-plus">
+	<i class="fas fa-plus">
 </a>
 	<table class="table striped bordered">
 		<thead>
