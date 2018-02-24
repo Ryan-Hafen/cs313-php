@@ -13,12 +13,13 @@
 				<input class="input" type="password" id="password" name="password" placeholder="Password" /> 
 			</div>
 			<div class="section">
-				<input class="button" type="submit" value="Sign In" /> 
+				<input class="button padding" type="submit" value="Sign In" /> 
+				<a href="index.php?action=register_form" class="button padding">Register</a>
 			</div>
 		</form>
 	</div>
 		
-	<div class="row row-padding align-left padding-16">
+	<div class="align-left padding-16">
 		<a href="index.php?action=register_form" class="button">Register</a>
 	</div>
 </div>
