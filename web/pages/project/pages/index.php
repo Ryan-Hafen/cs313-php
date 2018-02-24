@@ -24,7 +24,10 @@ else if ($action == 'sign_in'){
 	
 	$_SESSION["user"] = get_user_by_email($email);
 	
-	print_r($_SESSION);
+	echo $_SESSION["user"][user_id];
+	echo $_SESSION["user"][email];
+	echo $_SESSION["user"][first_name];
+	echo $_SESSION["user"][last_name];
 	
 	// $email_in_use = get_user_by_email($email);
 	// $password_check = get_password($email);
