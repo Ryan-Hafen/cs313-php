@@ -24,7 +24,6 @@ else if ($action == 'sign_in'){
 	
 	$_SESSION["user_id"] = get_user_by_email($email);
 	
-	echo $_SESSION["user_id"];
 	print_r($_SESSION);
 	
 	// $email_in_use = get_user_by_email($email);

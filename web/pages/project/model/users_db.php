@@ -13,7 +13,7 @@ function get_user_data($user_id) {
 
 function get_user_by_email($email) {
     global $db;
-    $query = 'SELECT id 
+    $query = 'SELECT * 
                 FROM users
                WHERE email = :email';    
     $statement = $db->prepare($query);
