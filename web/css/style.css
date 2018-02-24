@@ -786,6 +786,9 @@ a {
   top:0;
   transform:translate(-50%,0%);
 }
+.circle{
+	border-radius:50%;
+}
 
 .row-padding,
 .row-padding > .half,
