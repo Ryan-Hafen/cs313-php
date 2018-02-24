@@ -1,25 +1,4 @@
-<!DOCTYPE html>
-<html lang="en-us">
-
-<head>
-	<title>HOME | My Scripture Journal</title>
-    <?php include $_SERVER['DOCUMENT_ROOT'].'/modules/head.php';?>
-</head>
-
-<body>
-<!-- Header -->
-	<?php include $_SERVER['DOCUMENT_ROOT'].'/modules/header.php';?>
-	
-<!-- Nav -->
-	<?php include $_SERVER['DOCUMENT_ROOT'].'/modules/navigation.php';?>
-	
-<!-- Modal About-->
-	<?php include $_SERVER['DOCUMENT_ROOT'].'/modules/modal_about.php';?>
-
-
-<!-- Modal Contact-->
-	<?php include $_SERVER['DOCUMENT_ROOT'].'/modules/modal_contact.php';?>
-
+<?php include '../view/header.php'; ?>
 
 <!-- Main -->
 <div class="responsive card-4">
@@ -28,7 +7,7 @@
 </a>
 	<table class="table striped bordered">
 		<thead>
-   			<tr>
+   			<tr class="theme">
    				<th>Volume</th>
    				<th>Book</th>
    				<th>Chapter</th>
@@ -77,9 +56,4 @@
 </div>
 
 
-<!-- Footer -->
-    <?php include $_SERVER['DOCUMENT_ROOT'].'/modules/footer.php';?>
-
-</body>
-
-</html>
+<?php include '../view/footer.php'; ?>
