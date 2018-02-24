@@ -51,7 +51,7 @@ else if ($action == 'register_user') {
     $first_name = filter_input(INPUT_POST, 'first_name');
     $last_name = filter_input(INPUT_POST, 'last_name');
     $email = filter_input(INPUT_POST, 'email');
-    $password = filter_input(INPUT_POST, 'password',);
+    $password = filter_input(INPUT_POST, 'password');
     $password_match = filter_input(INPUT_POST, 'password_match');
 	
 	// $email_in_use = get_user_by_email($email);
