@@ -1,7 +1,7 @@
 <?php include '../view/header.php'; ?>
 
-<div class="row-padding">
-	<div class="half center card-4 padding-16">
+<div class="row row-padding center">
+	<div class="half card-4 padding-16">
 		<h2 class="text-theme">Sign in</h2>
     
 		<form action="." method="post" class="form">
@@ -18,7 +18,7 @@
 		</form>
 	</div>
 		
-	<div class="row align-left padding-16">
+	<div class="row row-padding align-left padding-16">
 		<a href="index.php?action=register_form" class="button">Register</a>
 	</div>
 </div>
