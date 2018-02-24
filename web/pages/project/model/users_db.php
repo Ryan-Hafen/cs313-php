@@ -39,15 +39,6 @@ function get_password($email) {
     return $user_password;  
 }
 
-// function add_user($note_text, $scriptures_id) {
-    // global $db;
-    // $query = 'INSERT INTO users (scripturesid, note)
-              // VALUES (1, :scriptures_id, :note_text)';
-    // $statement = $db->prepare($query);
-    // $statement->bindValue(':note_text', $note_text);
-    // $statement->bindValue(':scriptures_id', $scriptures_id);
-    // $statement->execute();
-    // $statement->closeCursor();
 function add_user($email, $first_name, $last_name, $full_name) {
     global $db;
     $query = 'INSERT INTO user (email, firstname, lastname, fullname)
