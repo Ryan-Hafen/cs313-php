@@ -35,11 +35,11 @@ else if ($action == 'sign_in'){
         include('../errors/error.php');
 		include('sign_in_form.php');
 	}
-	// else {
-		// $_SESSION["user"] = get_user_data($email);
-		// $notes = get_notes($_SESSION["user"][user_id]);
-		// include('notes_list.php');
-	// } 
+	else {
+		$_SESSION["user"] = get_user_data($email);
+		$notes = get_notes($_SESSION["user"][user_id]);
+		include('notes_list.php');
+	} 
  } 
 else if ($action == 'register_form') {
     include('register_form.php');
