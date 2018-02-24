@@ -1,7 +1,7 @@
 <?php include '../view/header.php'; ?>
 
-<div class="container">
-	<div class="container half center responsive card-4">
+<div class="row-padding">
+	<div class="half center card-4">
 		<h2 class="text-theme">Sign in</h2>
     
 		<form action="." method="post" class="form">
