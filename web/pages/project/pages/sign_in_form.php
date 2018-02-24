@@ -1,7 +1,7 @@
 <?php include '../view/header.php'; ?>
 
 <div class="half center ">
-	<div class="container card-4">
+	<div class="container responsive card-4">
 		<h2>Sign in</h2>
     
 		<form action="." method="post" class="form">
