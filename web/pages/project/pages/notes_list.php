@@ -1,10 +1,9 @@
 <?php include '../view/header.php'; ?>
 <main>
-
-    
     <section>
         <br>
 			<a href="index.php?action=add_note">Add Note</a>
+        <br>	
         <br>	
         <table>
             <tr>
