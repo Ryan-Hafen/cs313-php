@@ -13,7 +13,7 @@ function get_user_data($user_id) {
 
 function get_user_by_email($email) {
     global $db;
-    $query = 'SELECT * 
+    $query = 'SELECT id, email, firstname, lastname
                 FROM users
                WHERE email = :email';    
     $statement = $db->prepare($query);
@@ -21,7 +21,7 @@ function get_user_by_email($email) {
     $statement->execute();
     $user = $statement->fetch();
     $statement->closeCursor();
-	$user_info = array("user_id"=>$user['id'],"email"=>$user['email'],"first_name"=>$user['firstname'],"last_name"=>$user['firstname']);
+	$user_info = array("user_id"=>$user['id'],"email"=>$user['email'],"first_name"=>$user['firstname'],"last_name"=>$user['lastname']);
     // $user_id = $user['id'];
     // $email = $user['email'];
     // $first_name = $user['firstname'];
