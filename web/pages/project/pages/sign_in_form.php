@@ -1,7 +1,7 @@
 <?php include '../view/header.php'; ?>
 
-<div class="container half center ">
-	<div class="responsive card-4">
+<div class="container half">
+	<div class="container center responsive card-4">
 		<h2>Sign in</h2>
     
 		<form action="." method="post" class="form">
@@ -18,7 +18,7 @@
 		</form>
 	</div>
 		
-	<div class="responsive padding-16">
+	<div class="responsive align-left padding-16">
 		<a href="index.php?action=register_form" class="button">Register</a>
 	</div>
 </div>
