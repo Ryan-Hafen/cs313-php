@@ -6,13 +6,14 @@
 		<a href="index.php?action=add_note" class="left-align button circle large theme">
 			<i class="fas fa-plus"></i>
 		</a>
+		<p class="tooltip text-theme">Add Note</p>
 	</div>
 		
 	<div class="center">
 		<div class="responsive card-4">
 			<table class="table striped bordered">
 				<thead>
-					<tr class="xlarge theme">
+					<tr class="large theme">
 						<th>Volume</th>
 						<th>Book</th>
 						<th>Chapter</th>
