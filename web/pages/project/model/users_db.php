@@ -24,8 +24,8 @@ function get_user_by_email($email) {
     $statement->execute();
     $user = $statement->fetch();
     $statement->closeCursor();
-    $user_password = $user['password'];
-    return $user_password;  
+    $user_id = $user['id'];
+    return $user_id;  
 }
 
 function get_password($email) {
