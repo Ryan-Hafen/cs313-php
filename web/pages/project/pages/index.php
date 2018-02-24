@@ -81,7 +81,7 @@ else if ($action == 'register_user') {
 }
 else if ($action == 'edit_note_form') {
     $note_id = filter_input(INPUT_POST, 'note_id', FILTER_VALIDATE_INT);
-    $user_id = filter_input(INPUT_POST, 'user_id', FILTER_VALIDATE_INT);
+    // $user_id = filter_input(INPUT_POST, 'user_id', FILTER_VALIDATE_INT);
     $book_id = filter_input(INPUT_POST, 'book_id', FILTER_VALIDATE_INT);
     $volume_id = filter_input(INPUT_POST, 'volume_id', FILTER_VALIDATE_INT);
     $chapter_id = filter_input(INPUT_POST, 'chapter', FILTER_VALIDATE_INT);
@@ -99,7 +99,7 @@ else if ($action == 'edit_note_form') {
 } 
 else if ($action == 'edit_note') {
     $note_id = filter_input(INPUT_POST, 'note_id', FILTER_VALIDATE_INT);
-    $user_id = filter_input(INPUT_POST, 'user_id', FILTER_VALIDATE_INT);
+    // $user_id = filter_input(INPUT_POST, 'user_id', FILTER_VALIDATE_INT);
     $book_id = filter_input(INPUT_POST, 'book_id', FILTER_VALIDATE_INT);
     $volume_id = filter_input(INPUT_POST, 'volume_id', FILTER_VALIDATE_INT);
     $chapter_id = filter_input(INPUT_POST, 'chapter_id', FILTER_VALIDATE_INT);
@@ -120,19 +120,19 @@ else if ($action == 'edit_note') {
 } 
 else if ($action == 'delete_note') {
     $note_id = filter_input(INPUT_POST, 'note_id', FILTER_VALIDATE_INT);
-    $user_id = filter_input(INPUT_POST, 'user_id', FILTER_VALIDATE_INT);
+    // $user_id = filter_input(INPUT_POST, 'user_id', FILTER_VALIDATE_INT);
     if ($note_id == false) {
         $error = "Missing or incorrect product id or category id.";
         include('../errors/error.php');
     } else { 
         delete_note($note_id);
 		
-		$notes = get_notes($user_id);
+		$notes = get_notes($_SESSION["user"][user_id]);
 		include('notes_list.php');
     }
 } 
 else if ($action == 'add_note_form') {
-    $user_id = filter_input(INPUT_POST, 'user_id', FILTER_VALIDATE_INT);
+    // $user_id = filter_input(INPUT_POST, 'user_id', FILTER_VALIDATE_INT);
 	
     $volumes = get_volume_list();
     $books = get_book_list();
@@ -142,7 +142,7 @@ else if ($action == 'add_note_form') {
     include('add_note_form.php');
 } 
 else if ($action == 'add_note') {
-    $user_id = filter_input(INPUT_POST, 'user_id', FILTER_VALIDATE_INT);
+    // $user_id = filter_input(INPUT_POST, 'user_id', FILTER_VALIDATE_INT);
     $book_id = filter_input(INPUT_POST, 'book_id', FILTER_VALIDATE_INT);
     $chapter_id = filter_input(INPUT_POST, 'chapter_id', FILTER_VALIDATE_INT);
     $verse_id = filter_input(INPUT_POST, 'verse_id', FILTER_VALIDATE_INT);
@@ -156,9 +156,9 @@ else if ($action == 'add_note') {
 		
 		$note_id = get_max_note_id();
 		
-        add_note($note_id, $user_id, $scriptures_id, $note_text);
+        add_note($note_id, $_SESSION["user"][user_id], $scriptures_id, $note_text);
 		
-		$notes = get_notes($user_id);
+		$notes = get_notes($_SESSION["user"][user_id]);
 		include('notes_list.php');
     }
 }
