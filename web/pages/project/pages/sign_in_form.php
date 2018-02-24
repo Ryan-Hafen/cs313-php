@@ -1,8 +1,8 @@
 <?php include '../view/header.php'; ?>
 
-<div class="container half">
-	<div class="container center responsive card-4">
-		<h2>Sign in</h2>
+<div class="container">
+	<div class="container half center responsive card-4">
+		<h2 class="text-theme">Sign in</h2>
     
 		<form action="." method="post" class="form">
 			<input type="hidden" name="action" value="sign_in">
