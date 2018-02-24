@@ -41,7 +41,7 @@ function get_password($email) {
 
 function add_user($email, $first_name, $last_name, $full_name) {
     global $db;
-    $query = 'INSERT INTO user (email, firstname, lastname, fullname)
+    $query = 'INSERT INTO users (email, firstname, lastname, fullname)
               VALUES (:email, :first_name, :last_name, :full_name);';
     $statement = $db->prepare($query);
     $statement->bindValue(':email', $email);
