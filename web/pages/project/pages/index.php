@@ -30,11 +30,11 @@ else if ($action == 'sign_in'){
         include('../errors/error.php');
 		include('sign_in_form.php');
     } 
-	// else if ($email_in_use == false) { 
-        // $error = "This email address has not been registered. ". $email;
-        // include('../errors/error.php');
-		// include('sign_in_form.php');
-	// }
+	else if ($email_in_use == false) { 
+        $error = "This email address has not been registered. ". $email;
+        include('../errors/error.php');
+		include('sign_in_form.php');
+	}
 	// else {
 		// $_SESSION["user"] = get_user_data($email);
 		// $notes = get_notes($_SESSION["user"][user_id]);
