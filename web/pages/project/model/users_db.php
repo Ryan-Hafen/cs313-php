@@ -48,5 +48,16 @@ function get_password($email) {
     // $statement->bindValue(':scriptures_id', $scriptures_id);
     // $statement->execute();
     // $statement->closeCursor();
-
+function add_user($email, $first_name, $last_name, $full_name) {
+    global $db;
+    $query = 'INSERT INTO user (email, firstname, lastname, fullname)
+              VALUES (:email, :first_name, :last_name, :full_name);';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':email', $email);
+    $statement->bindValue(':first_name', $first_name);
+    $statement->bindValue(':last_name', $last_name);
+    $statement->bindValue(':full_name', $full_name);
+    $statement->execute();
+    $statement->closeCursor();
+}
 ?>

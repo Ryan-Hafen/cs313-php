@@ -54,28 +54,32 @@ else if ($action == 'register_user') {
     $password = filter_input(INPUT_POST, 'password');
     $password_match = filter_input(INPUT_POST, 'password_match');
 	
-	// $email_in_use = get_user_by_email($email);
+	$email_in_use = get_user_by_email($email);
 	
-	echo $first_name;
-	echo $last_name;
-	echo $email;
-	echo $password;
-	echo $password_match;
-	echo $email_in_use;
+	// echo $first_name;
+	// echo $last_name;
+	// echo $email;
+	// echo $password;
+	// echo $password_match;
+	// echo $email_in_use;
 	
-    // if ($first_name == "" || $last_name == "" || $email == "" || $password == "" || $password_match == "") {
-        // $error = "All fields are required.";
-        // include('../errors/error.php');
-    // } else if ($email_in_use != false) { 
-        // $error = "This email address has already been registered. ". $email;
-        // include('../errors/error.php');
-	// } else if ($password == $password_match) { 
-        // $error = "Passwords do not match.";
-        // include('../errors/error.php');
-	// } else { 
-        // add_user($note_id);
-		// include('notes_list.php');
-	// } 
+    if ($first_name == "" || $last_name == "" || $email == "" || $password == "" || $password_match == "") {
+        $error = "All fields are required.";
+        include('../errors/error.php');
+    } else if ($email_in_use != false) { 
+        $error = "This email address has already been registered. Please Sign in!". $email;
+        include('../errors/error.php');
+	} else if ($password != $password_match) { 
+        $error = "Passwords do not match.";
+        include('../errors/error.php');
+	} else { 
+	    $full_name = $first_name . " " . $last_name;
+		
+        add_user($email, $first_name, $last_name, $full_name);
+		
+		$notes = get_notes($user_id);
+		include('notes_list.php');
+	} 
 }
 else if ($action == 'edit_note_form') {
     $note_id = filter_input(INPUT_POST, 'note_id', FILTER_VALIDATE_INT);
