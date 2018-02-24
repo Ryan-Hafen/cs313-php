@@ -6,7 +6,7 @@
 		<a href="index.php?action=add_note" class="left-align button circle large theme">
 			<i class="fas fa-plus"></i>
 		</a>
-		<p class="tooltip text-theme">Add Note</p>
+		<p class="tooltip text">Add Note</p>
 	</div>
 		
 	<div class="center">
