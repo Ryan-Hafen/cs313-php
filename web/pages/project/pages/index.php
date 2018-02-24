@@ -57,12 +57,15 @@ else if ($action == 'register_user') {
     if ($first_name == "" || $last_name == "" || $email == "" || $password == "" || $password_match == "") {
         $error = "All fields are required.";
         include('../errors/error.php');
+		include('register_form.php');
     } else if ($email_in_use != false) { 
         $error = "This email address has already been registered. Please Sign in! ". $email;
         include('../errors/error.php');
+		include('register_form.php');
 	} else if ($password != $password_match) { 
         $error = "Passwords do not match.";
         include('../errors/error.php');
+		include('register_form.php');
 	} else { 
 	    $full_name = $first_name . " " . $last_name;
 		$user_id = get_max_user_id();
@@ -101,6 +104,7 @@ else if ($action == 'edit_note') {
     if ($note_id == false || $book_id == false || $chapter_id == false || $verse_id == false || $note_text == "") {
         $error = 'All fields are required. note_id = ' .$note_id;
         include('../errors/error.php');
+        include('edit_note_form.php');
     } else {
 		$scriptures_id = get_scripture_id($book_id, $chapter_id, $verse_id);
 		
@@ -114,7 +118,9 @@ else if ($action == 'delete_note') {
     $note_id = filter_input(INPUT_POST, 'note_id', FILTER_VALIDATE_INT);
     if ($note_id == false) {
         $error = "Missing or incorrect product id or category id.";
+		$notes = get_notes($_SESSION["user"][user_id]);
         include('../errors/error.php');
+		include('notes_list.php');
     } else { 
         delete_note($note_id);
 		
@@ -140,6 +146,7 @@ else if ($action == 'add_note') {
     if (book_id == false || $chapter_id == false || $verse_id == false || $note_text == "") {
         $error = "All fields are required.";
         include('../errors/error.php');
+		include('add_note_form.php');
     } else {
 		$scriptures_id = get_scripture_id($book_id, $chapter_id, $verse_id);
 		
