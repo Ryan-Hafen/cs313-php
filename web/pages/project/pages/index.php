@@ -28,29 +28,23 @@ else if ($action == 'sign_in'){
 	// echo $_SESSION["user"][email];
 	// echo $_SESSION["user"][first_name];
 	// echo $_SESSION["user"][last_name];
-	echo $user[email];
 	
-	// $email_in_use = get_user_by_email($email);
-	// $password_check = get_password($email);
+	$email_in_use = get_user_by_email($_SESSION["user"][email]);
+	$password_check = get_password($_SESSION["user"][email]);
 	
-    // if ($email == "" || $password == "") {
-        // $error = "All fields are required.";
-		// $page = 'sign_in_form.php';
-        // include('../errors/error.php');
-    // } 
-	// else if ($email_in_use == false) { 
-        // $error = "This email address has not been registered. ". $email;
-        // include('../errors/error.php');
-	// } 
-	// else if ($password != $password_check) { 
-        // $error = "Passwords do not match.";
-        // include('../errors/error.php');
-	// } 
-	// else { 
-		// $user_id = get_user_by_email($email);
-		// $notes = get_notes($user_id );
-		// include('notes_list.php');
-	// } 
+    if ($_SESSION["user"][email] == "" || $password == "") {
+        $error = "All fields are required.";
+		$page = 'sign_in_form.php';
+        include('../errors/error.php');
+    } 
+	else if ($_SESSION["user"][user_id] == false) { 
+        $error = "This email address has not been registered. ". $email;
+        include('../errors/error.php');
+	}
+	else {
+		$notes = get_notes($_SESSION["user"][user_id]);
+		include('notes_list.php');
+	} 
 
  } 
 else if ($action == 'register_form') {
