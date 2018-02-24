@@ -13,7 +13,6 @@
 					<th>Book</th>
 					<th>Chapter</th>
 					<th>Verse</th>
-					<th>Email</th>
 					<th>Note</th>
 					<th>&nbsp;</th>
 					<th>&nbsp;</th>
@@ -26,7 +25,6 @@
 					<td><?php echo $note['bookname']; ?></td>
 					<td><?php echo $note['chapter']; ?></td>
 					<td><?php echo $note['verse']; ?></td>
-					<td><?php echo $note['email']; ?></td>
 					<td><?php echo $note['note']; ?></td>
 					<td><form action="." method="post">
 						<input type="hidden" name="action" value="edit_note_form">
