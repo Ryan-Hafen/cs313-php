@@ -19,10 +19,7 @@ function get_user_by_email($email) {
     $statement = $db->prepare($query);
     $statement->bindValue(':email', $email);
     $statement->execute();
-    $user = $statement->fetch();
-    $statement->closeCursor();
-    $user_id = $user['id'];
-    return $user_id; 
+    return $statement;   
 }
 
 function get_password($email) {
