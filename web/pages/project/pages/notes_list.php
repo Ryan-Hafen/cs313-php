@@ -2,12 +2,10 @@
 
 <!-- Main -->
 <div class="container">
-	<div class="container">
-		<div class="responsive">
-			<a href="index.php?action=add_note" class="left-align button circle large theme">
-				<i class="fas fa-plus"></i>
-			</a>
-		</div>
+	<div class="responsive padding-16">
+		<a href="index.php?action=add_note" class="left-align button circle large theme">
+			<i class="fas fa-plus"></i>
+		</a>
 	</div>
 		
 	<div class="center">
