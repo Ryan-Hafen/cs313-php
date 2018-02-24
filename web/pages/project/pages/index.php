@@ -43,17 +43,25 @@ else if ($action == 'sign_in'){
 	} 
 
  } 
-// else if ($action == 'register_form') {
-    // include('register_form.php');
+else if ($action == 'register_form') {
+    include('register_form.php');
 
-// } else if ($action == 'register_user') {
-    // $first_name = filter_input(INPUT_POST, 'first_name', FILTER_VALIDATE_INT);
-    // $last_name = filter_input(INPUT_POST, 'last_name', FILTER_VALIDATE_INT);
-    // $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_INT);
-    // $password = filter_input(INPUT_POST, 'password', FILTER_VALIDATE_INT);
-    // $password_match = filter_input(INPUT_POST, 'password_match', FILTER_VALIDATE_INT);
+} 
+else if ($action == 'register_user') {
+    $first_name = filter_input(INPUT_POST, 'first_name');
+    $last_name = filter_input(INPUT_POST, 'last_name');
+    $email = filter_input(INPUT_POST, 'email');
+    $password = filter_input(INPUT_POST, 'password',);
+    $password_match = filter_input(INPUT_POST, 'password_match');
 	
-	// $email_in_use = get_user_by_email($email);
+	$email_in_use = get_user_by_email($email);
+	
+	echo $first_name;
+	echo $last_name;
+	echo $email;
+	echo $password;
+	echo $password_match;
+	echo $email_in_use;
 	
     // if ($first_name == "" || $last_name == "" || $email == "" || $password == "" || $password_match == "") {
         // $error = "All fields are required.";
@@ -68,7 +76,7 @@ else if ($action == 'sign_in'){
         // add_user($note_id);
 		// include('notes_list.php');
 	// } 
-// }
+}
 else if ($action == 'edit_note_form') {
     $note_id = filter_input(INPUT_POST, 'note_id', FILTER_VALIDATE_INT);
     $user_id = filter_input(INPUT_POST, 'user_id', FILTER_VALIDATE_INT);
