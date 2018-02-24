@@ -60,7 +60,7 @@ else if ($action == 'register_user') {
         $error = "All fields are required.";
         include('../errors/error.php');
     } else if ($email_in_use != false) { 
-        $error = "This email address has already been registered. Please Sign in!". $email;
+        $error = "This email address has already been registered. Please Sign in! ". $email;
         include('../errors/error.php');
 	} else if ($password != $password_match) { 
         $error = "Passwords do not match.";
