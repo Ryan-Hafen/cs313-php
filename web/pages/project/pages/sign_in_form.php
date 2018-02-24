@@ -14,7 +14,7 @@
 			</div>
 			<div class="section">
 				<input class="button margin padding-16" type="submit" value="Sign In" /> 
-				<a href="index.php?action=register_form" class="button margin padding-16">Register</a>
+				<a href="index.php?action=register_form" class="button margin padding-16 theme">Register</a>
 			</div>
 		</form>
 	</div>
