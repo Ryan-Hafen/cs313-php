@@ -22,7 +22,7 @@ else if ($action == 'sign_in'){
     $email = filter_input(INPUT_POST, 'email');
     $password = filter_input(INPUT_POST, 'password');
 	
-	$_SESSION["user_id"] = get_user_by_email($email);
+	$_SESSION["user"] = get_user_by_email($email);
 	
 	print_r($_SESSION);
 	
