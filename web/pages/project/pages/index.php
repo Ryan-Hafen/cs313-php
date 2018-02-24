@@ -22,26 +22,22 @@ else if ($action == 'sign_in'){
     $email = filter_input(INPUT_POST, 'email');
     $password = filter_input(INPUT_POST, 'password');
 	
-	$_SESSION["user"] = get_user_by_email($email);
+	$email_in_use = get_user_by_email($email);
+	$password_check = get_password($email);
 	
-	// echo $_SESSION["user"][user_id];
-	// echo $_SESSION["user"][email];
-	// echo $_SESSION["user"][first_name];
-	// echo $_SESSION["user"][last_name];
-	
-	$email_in_use = get_user_by_email($_SESSION["user"][email]);
-	$password_check = get_password($_SESSION["user"][email]);
-	
-    if ($_SESSION["user"][email] == "" || $password == "") {
+    if ($email == "" || $password == "") {
         $error = "All fields are required.";
-		$page = 'sign_in_form.php';
         include('../errors/error.php');
+		include('sign_in_form.php');
     } 
-	else if ($_SESSION["user"][user_id] == false) { 
+	else if ($email_in_use == false) { 
         $error = "This email address has not been registered. ". $email;
         include('../errors/error.php');
+		include('sign_in_form.php');
 	}
 	else {
+	
+		$_SESSION["user"] = get_user_data($email);
 		$notes = get_notes($_SESSION["user"][user_id]);
 		include('notes_list.php');
 	} 
@@ -81,7 +77,6 @@ else if ($action == 'register_user') {
 }
 else if ($action == 'edit_note_form') {
     $note_id = filter_input(INPUT_POST, 'note_id', FILTER_VALIDATE_INT);
-    // $user_id = filter_input(INPUT_POST, 'user_id', FILTER_VALIDATE_INT);
     $book_id = filter_input(INPUT_POST, 'book_id', FILTER_VALIDATE_INT);
     $volume_id = filter_input(INPUT_POST, 'volume_id', FILTER_VALIDATE_INT);
     $chapter_id = filter_input(INPUT_POST, 'chapter', FILTER_VALIDATE_INT);
@@ -99,7 +94,6 @@ else if ($action == 'edit_note_form') {
 } 
 else if ($action == 'edit_note') {
     $note_id = filter_input(INPUT_POST, 'note_id', FILTER_VALIDATE_INT);
-    // $user_id = filter_input(INPUT_POST, 'user_id', FILTER_VALIDATE_INT);
     $book_id = filter_input(INPUT_POST, 'book_id', FILTER_VALIDATE_INT);
     $volume_id = filter_input(INPUT_POST, 'volume_id', FILTER_VALIDATE_INT);
     $chapter_id = filter_input(INPUT_POST, 'chapter_id', FILTER_VALIDATE_INT);
@@ -120,7 +114,6 @@ else if ($action == 'edit_note') {
 } 
 else if ($action == 'delete_note') {
     $note_id = filter_input(INPUT_POST, 'note_id', FILTER_VALIDATE_INT);
-    // $user_id = filter_input(INPUT_POST, 'user_id', FILTER_VALIDATE_INT);
     if ($note_id == false) {
         $error = "Missing or incorrect product id or category id.";
         include('../errors/error.php');
@@ -132,7 +125,6 @@ else if ($action == 'delete_note') {
     }
 } 
 else if ($action == 'add_note_form') {
-    // $user_id = filter_input(INPUT_POST, 'user_id', FILTER_VALIDATE_INT);
 	
     $volumes = get_volume_list();
     $books = get_book_list();
@@ -142,7 +134,6 @@ else if ($action == 'add_note_form') {
     include('add_note_form.php');
 } 
 else if ($action == 'add_note') {
-    // $user_id = filter_input(INPUT_POST, 'user_id', FILTER_VALIDATE_INT);
     $book_id = filter_input(INPUT_POST, 'book_id', FILTER_VALIDATE_INT);
     $chapter_id = filter_input(INPUT_POST, 'chapter_id', FILTER_VALIDATE_INT);
     $verse_id = filter_input(INPUT_POST, 'verse_id', FILTER_VALIDATE_INT);
