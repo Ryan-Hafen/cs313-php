@@ -3,7 +3,7 @@
 <div class="container">
 	<div class="row row-padding center">
 		<div class="half card-4 margin padding-16">
-			<h2 class="text-theme">Edit Note</h2>
+			<h2 class="text-theme">Add Note</h2>
         
 			<form action="." method="post" class="form">
 				<input type="hidden" name="action" value="edit_note">
