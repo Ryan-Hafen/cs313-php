@@ -8,7 +8,7 @@
 				<input type="hidden" name="action" value="edit_note">
    
 				<div class="section">
-					<label class="text-theme">Volume:  </label>
+					<label class="text-theme align-left">Volume:  </label>
 					<select class="select" name="volume_id">
 						<?php foreach ($volumes as $volume) : ?>
 						<option value="<?php echo $volume['volumeid']; ?>" 
@@ -19,7 +19,7 @@
 					</select> 
 				</div>
 				<div class="section">
-					<label class="text-theme">Book:  </label>
+					<label class="text-theme align-left">Book:  </label>
 					<select class="select" name="book_id">
 						<?php foreach ($books as $book) : ?>
 						<option value="<?php echo $book['bookid']; ?>" 
@@ -30,7 +30,7 @@
 					</select> 
 				</div>
 				<div class="section">
-					<label class="text-theme">Chapter:  </label>
+					<label class="text-theme align-left">Chapter:  </label>
 					<select class="select" name="chapter_id">
 					<?php foreach ($chapters as $chapter) : ?>
 						<option value="<?php echo $chapter['chapter']; ?>" 
@@ -41,7 +41,7 @@
 					</select> 
 				</div>
 				<div class="section">
-					<label class="text-theme">Verse:  </label>
+					<label class="text-theme align-left">Verse:  </label>
 					<select class="select" name="verse_id">
 					<?php foreach ($verses as $verse) : ?>
 						<option value="<?php echo $verse['verse']; ?>" 
@@ -52,7 +52,7 @@
 					</select> 
 				</div>
 				<div class="section">
-					<label class="text-theme">Note:</label>
+					<label class="text-theme align-left">Note:</label>
 					<textarea class="input" name="note_text" id="note_text" rows="4" cols="50"><?php echo $note['note']; ?></textarea><br><br>
 				</div>
 				<div class="section">
