@@ -1,4 +1,5 @@
 <?php include '../view/header.php'; ?>
+
 <div class="container">
 	<div class="row row-padding center">
 		<div class="half card-4 margin padding-16">
